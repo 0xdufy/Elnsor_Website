@@ -1,6 +1,6 @@
 # Al Nesour Feeds Design System
 
-**Status:** Proposed in TASK-001; not approved for implementation yet.  
+**Status:** Approved in TASK-001 on 2026-08-27.
 **Source proposal:** [`ST-08 Brand Direction`](tasks/TASK-001-brand-content-visual-direction/ST-08-brand-direction.md)
 
 ## Design intent
@@ -54,6 +54,6 @@ Modern Egyptian B2B feed supply: commercial, credible, practical, product-led, a
 
 Use natural-light, documentary industrial-agriculture imagery: material handling, warehouses, factories, transport, product textures, and unbranded feed sacks. Avoid generic farm landscapes, cute livestock, synthetic CGI, glossy imagery, and branded packaging.
 
-## Approval gate
+## Approval record
 
-Do not treat this document as the final design specification until the owner has approved the TASK-001 brand proposal and OpenDesign exploration has been completed and recorded.
+The owner approved this design direction after the TASK-001 OpenDesign exploration was completed and recorded in ST-08. It is now the authoritative visual-system reference for future implementation tasks, subject to a later owner-approved brand-asset or product-information update.

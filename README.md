@@ -27,6 +27,17 @@ Then visit `http://127.0.0.1:4173/`.
 - Shared tokens and styling are in `assets/css/`.
 - A future approved logo can replace the header/footer wordmark without changing the layout contract.
 
+## Verify
+
+Run the maintained formatting and smoke checks from the repository root:
+
+```powershell
+npx prettier --check "**/*.{html,css,js,md,json}"
+node tests/redesign-check.mjs
+```
+
+The smoke test starts and stops its own temporary local static server. It checks each Arabic and English page at the required desktop, tablet, and mobile viewport sizes, then verifies both localized WhatsApp quote flows.
+
 ## Before production launch
 
 Confirm the final logo, English commercial name for `زيت منزوع`, soybean-hull variant presentation, written address, production domain, any public client/supplier permissions, and any documented certifications, capacities, or specifications.

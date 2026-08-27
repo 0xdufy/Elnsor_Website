@@ -2,9 +2,9 @@
 
 ## Status
 
-**Status:** In review
+**Status:** Complete — foundation approved 2026-08-27
 **Priority:** High
-**Execution:** Do not start implementation until this task is reviewed and approved.
+**Execution:** The approved foundation may guide only separately scoped implementation tasks.
 
 ---
 

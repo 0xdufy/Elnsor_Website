@@ -1,7 +1,7 @@
 # ST-08 — Brand & Visual Direction
 
-**Status:** Provisional proposal for owner review  
-**OpenDesign status:** Codex discovery attempted repeatedly on 2026-08-27; the registered tools cannot reach a daemon at `127.0.0.1:7456`. This proposal must be checked against OpenDesign exploration before it becomes final.
+**Status:** Approved 2026-08-27
+**OpenDesign status:** Exploration completed 2026-08-27. The initial registered endpoint at `127.0.0.1:7456` was unavailable, but the running Open Design workspace was discovered at `http://127.0.0.1:52856` and reviewed through its UI.
 
 ## Direction exploration
 
@@ -10,6 +10,20 @@
 | A. Operational green    | Deep industrial green, warm mineral neutrals, brass only for action, documentary operations photography | Feels credible, local-market commercial, and scalable across product and service content | Can become too dark if green is overused                                      | **Recommended**                                                    |
 | B. Product-market light | Mostly light neutral canvas, stronger product imagery, muted green controls                             | Very clear product catalogue and mobile scanning                                         | Risks becoming a generic commodity/retail catalogue                           | Not selected as the primary direction; borrow its product clarity. |
 | C. Heritage badge       | Circular eagle seal, stronger gold, more formal dark surfaces                                           | Preserves recognizable Facebook identity                                                 | Risks looking metallic, luxury, or old-fashioned and reducing product clarity | Not selected; retain only the simplified eagle/circle idea.        |
+
+## OpenDesign exploration review
+
+The existing OpenDesign project **“Al Nesour Feeds — Bilingual Corporate Website”** was inspected as a design-reference prototype. Its workflow compared three related directions—restrained industrial editorial, premium supply-chain documentary, and structured agricultural trade/corporate—then selected the structured trade/corporate direction.
+
+The rendered reference supports the following decisions in this proposal:
+
+- warm cream as the principal reading surface, with forest green used to establish hierarchy rather than cover every section;
+- a compact, typographic wordmark and a restrained mobile header;
+- brass only for the primary WhatsApp conversion action;
+- strong, editorial-scale Arabic type without decorative effects; and
+- orderly grids, light borders, and documentary operational imagery instead of generic agriculture styling.
+
+The reference is design input only, not a content or implementation source. Its earlier prompt contains superseded or unsupported material, including an unconfirmed English working name for `زيت منزوع`, different hero wording, and product-scope assumptions. TASK-001 confirmed facts in `AGENTS.md` and ST-05 take precedence. No OpenDesign prototype file, generated image, or code was copied into this repository.
 
 ## Chosen direction: Operational green
 

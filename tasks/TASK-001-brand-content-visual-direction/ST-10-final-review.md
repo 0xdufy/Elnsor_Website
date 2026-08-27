@@ -1,6 +1,6 @@
 # ST-10 — TASK-001 Final Review
 
-**Status:** Review pending — not approved for implementation  
+**Status:** Complete — owner approved 2026-08-27
 **Review date:** 2026-08-27
 
 ## Completion evidence
@@ -16,19 +16,19 @@
 | Current catalogue corrected and unconfirmed stock removed | `assets/js/products-data.js`: 5 confirmed raw materials, 3 confirmed finished-feed categories; optional soybean-meal and yellow-corn entries removed | Complete                                  |
 | Factory-direct and import wording corrected               | Arabic/English public source now says factory-direct supply and imported/diverse sources; obsolete wording search returned no matches                | Complete                                  |
 | Arabic content tone defined                               | ST-05 content voice guidance                                                                                                                         | Complete                                  |
-| Homepage architecture and Arabic copy prepared            | [ST-06 & ST-07 Homepage Architecture and Arabic Copy](ST-06-07-homepage-content-and-copy.md)                                                         | Proposed — owner review required          |
-| Existing eagle identity and future lockup addressed       | [ST-08 Brand Direction](ST-08-brand-direction.md)                                                                                                    | Proposed — owner review required          |
-| Typography and colour direction selected                  | Proposed `DESIGN.md` and ST-08                                                                                                                       | Proposed — owner review required          |
+| Homepage architecture and Arabic copy prepared            | [ST-06 & ST-07 Homepage Architecture and Arabic Copy](ST-06-07-homepage-content-and-copy.md)                                                         | Approved                                  |
+| Existing eagle identity and future lockup addressed       | [ST-08 Brand Direction](ST-08-brand-direction.md)                                                                                                    | Approved                                  |
+| Typography and colour direction selected                  | Approved `DESIGN.md` and ST-08                                                                                                                       | Approved                                  |
 | Future image and feed-bag requirements documented         | [ST-09 Future Image Requirements](ST-09-image-requirements.md)                                                                                       | Complete; asset approval remains separate |
 | No final AI images generated                              | No new raster assets added; ST-09 documents the owner-led workflow                                                                                   | Complete                                  |
 | GitHub Pages remains preview-only                         | `AGENTS.md` and `README.md`                                                                                                                          | Complete                                  |
-| Current static-site smoke checks pass                     | `node tests/redesign-check.mjs`: 42 checks, 0 failures                                                                                               | Complete                                  |
-| OpenDesign design exploration used and recorded           | Codex cannot reach the registered OpenDesign daemon at `127.0.0.1:7456`; repeated discovery attempts failed                                          | **Blocked**                               |
-| Explicit owner approval for content and visual decisions  | Awaiting review of ST-06/07 and ST-08                                                                                                                | **Blocked**                               |
+| Current static-site smoke checks pass                     | `node tests/redesign-check.mjs`: 42 checks, 0 failures; the test starts and stops its own temporary local static server                              | Complete                                  |
+| OpenDesign design exploration used and recorded           | Open Design 0.14.1 workspace and the existing bilingual corporate reference were inspected at `127.0.0.1:52856`; findings and non-adopted assumptions are recorded in ST-08 | Complete |
+| Explicit owner approval for content and visual decisions  | Owner approved the full ST-05 through ST-09 package on 2026-08-27                                                                                   | Complete                                  |
 
-## Owner review package
+## Approved owner review package
 
-Please review these decisions before any new page/layout implementation begins:
+The following decisions are approved as the basis for later implementation tasks:
 
 1. **Hero**: `خامات أعلاف وأعلاف جاهزة بكميات تناسب نشاطك` and its supporting copy.
 2. **Primary CTA**: use `اطلب سعر اليوم` consistently.
@@ -37,10 +37,8 @@ Please review these decisions before any new page/layout implementation begins:
 5. **Visual direction**: Operational Green—deep green, warm neutrals, brass conversion accent, IBM Plex Sans Arabic/IBM Plex Sans, and a future simplified eagle + Arabic wordmark lockup.
 6. **Images**: retain current AI images only temporarily and use the ST-09 brief for future owner-approved final assets.
 
-## Required before TASK-001 can close
+## Remaining launch confirmation
 
-1. Make OpenDesign reachable from Codex and complete its capability discovery/design exploration.
-2. Approve or revise the homepage content, primary CTA, product-family presentation, visual direction, typography, palette, and logo approach.
-3. Confirm the exact English commercial name for `زيت منزوع`, or keep the temporary safe label until the later English-content task.
+The exact English commercial name for `زيت منزوع` remains an owner confirmation item. Its current safe temporary label is approved for use until that confirmation; it does not block TASK-001 closure.
 
 No homepage, global-layout, product-page, service-page, about-page, contact-flow, English rewrite, production SEO, final logo, feed-bag, or final-image implementation has been started as part of TASK-001.

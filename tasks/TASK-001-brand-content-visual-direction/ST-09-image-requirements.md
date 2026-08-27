@@ -1,6 +1,6 @@
 # ST-09 — Future Image Requirements
 
-**Status:** Proposed asset plan; no final images generated in TASK-001.  
+**Status:** Approved asset plan 2026-08-27; no final images generated in TASK-001.
 **Visual intent:** Natural-light, documentary industrial agriculture. No text, logos, branded packaging, cartoon styling, glossy CGI, fantasy machinery, or competitor references.
 
 ## Rules for every future image

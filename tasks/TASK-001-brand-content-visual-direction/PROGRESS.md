@@ -30,11 +30,9 @@ Completed 2026-08-27.
 - Selectively preserved compatible guidance from the removed `AGENTS_V2.md`; excluded its conflicting full-redesign instructions and unconfirmed public-product approach.
 - Updated `README.md` to identify the documentation hierarchy and maintenance entry points.
 
-## In progress
-
 ### ST-05 — Business & Content Foundation
 
-Completed as a proposal. See [ST-05 Business & Content Foundation](ST-05-business-content-foundation.md).
+Approved 2026-08-27. See [ST-05 Business & Content Foundation](ST-05-business-content-foundation.md).
 
 - Corrected the live centralized product data so only the five confirmed raw-material products and the three confirmed finished-feed categories render publicly.
 - Removed the unconfirmed soybean-meal and yellow-corn entries.
@@ -42,25 +40,25 @@ Completed as a proposal. See [ST-05 Business & Content Foundation](ST-05-busines
 
 ### ST-06 & ST-07 — Homepage Architecture and Arabic Copy
 
-Completed as a proposal. See [ST-06 & ST-07 Homepage Architecture and Arabic Copy](ST-06-07-homepage-content-and-copy.md).
+Approved 2026-08-27. See [ST-06 & ST-07 Homepage Architecture and Arabic Copy](ST-06-07-homepage-content-and-copy.md).
 
 ### ST-08 — Brand Direction
 
-Provisional proposal completed. See [ST-08 Brand Direction](ST-08-brand-direction.md) and the proposed [`DESIGN.md`](../../DESIGN.md). OpenDesign exploration remains required before this direction can become final.
+Approved 2026-08-27. See [ST-08 Brand Direction](ST-08-brand-direction.md) and [`DESIGN.md`](../../DESIGN.md). OpenDesign exploration was completed and recorded.
 
 ### ST-09 — Future Image Requirements
 
-Completed as an image plan. See [ST-09 Future Image Requirements](ST-09-image-requirements.md). No final images were generated.
+Approved 2026-08-27. See [ST-09 Future Image Requirements](ST-09-image-requirements.md). No final images were generated.
 
 ## OpenDesign status
 
-OpenDesign was unavailable during ST-01. Although the owner confirmed it is running, repeated discovery calls and a local port check found no reachable daemon at `127.0.0.1:7456` on 2026-08-27. ST-08 remains provisional until Codex can discover and use its available project, skill, and design-system capabilities.
+The initial registered endpoint at `127.0.0.1:7456` was unavailable. On 2026-08-27, Codex located the active Open Design 0.14.1 workspace at `127.0.0.1:52856`, inspected its available project, design-system choice, completed design workflow, and rendered responsive reference. Its visual findings are recorded in ST-08. The reference did not override this repository’s confirmed business facts or authorize implementation.
 
 ## Approval record
 
-On 2026-08-27, the owner approved the ST-01 cleanup and documentation-consolidation decisions and confirmed OpenDesign is running.
+On 2026-08-27, the owner approved the ST-01 cleanup and documentation-consolidation decisions, confirmed OpenDesign is running, and approved the ST-05 through ST-09 business/content, homepage, visual-direction, and image-planning package. The temporary English label `Feed-Related Oil Product` remains approved only until the exact commercial name for `زيت منزوع` is confirmed.
 
 ## Verification
 
 - `npx prettier --check` passed for all maintained HTML, CSS, JavaScript, Markdown, and retained test source.
-- `node tests/redesign-check.mjs` passed: 42 page/viewport and localized quote-flow smoke checks with no failures.
+- `node tests/redesign-check.mjs` passed: 42 page/viewport and localized quote-flow smoke checks with no failures. The test now starts and stops its own temporary local static server, so it has no separately started-server prerequisite.

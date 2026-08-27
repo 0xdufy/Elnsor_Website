@@ -1,6 +1,6 @@
 # ST-05 — Business & Content Foundation
 
-**Status:** Proposed for owner review  
+**Status:** Approved 2026-08-27
 **Authority:** Confirmed facts from TASK-001, incorporated into `AGENTS.md`  
 **Language source:** Arabic; English follows approved Arabic claims and structure.
 

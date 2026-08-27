@@ -1,6 +1,6 @@
 # ST-06 & ST-07 — Homepage Architecture and Arabic Copy
 
-**Status:** Proposed for owner review before implementation  
+**Status:** Approved 2026-08-27; ready to guide the later homepage implementation task
 **Primary conversion:** WhatsApp price inquiry  
 **Recommended primary CTA:** `اطلب سعر اليوم`
 
