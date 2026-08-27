@@ -8,27 +8,59 @@
       name="description"
       content="Feed raw materials and finished feed for commercial supply."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="alternate" hreflang="ar" href="../products.html" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-row">
         <a class="wordmark" href="index.html"
           ><strong>Al Nesour Feeds</strong><small>شركة النسور للأعلاف</small></a
         >
-        <nav class="main-nav">
+        <nav id="primary-navigation" class="main-nav" aria-label="Primary navigation">
           <a href="index.html">Home</a><a href="about.html">About</a
           ><a aria-current="page" href="products.html">Products</a
           ><a href="services.html">Services</a><a href="contact.html">Contact</a>
         </nav>
         <div class="header-actions">
           <a class="lang-link" href="../products.html">AR</a
-          ><a class="btn btn-primary" href="contact.html">Request a Quote</a>
+          ><a class="btn btn-primary" href="contact.html">Request Today's Price</a
+          ><button
+            class="menu-toggle"
+            type="button"
+            data-menu-toggle
+            aria-expanded="false"
+            aria-controls="mobile-navigation"
+            aria-label="Open navigation menu"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
         </div>
       </div>
+      <nav
+        id="mobile-navigation"
+        class="mobile-nav"
+        data-mobile-nav
+        aria-label="Mobile navigation"
+        aria-hidden="true"
+      >
+        <div class="mobile-nav-inner">
+          <a href="index.html">Home</a><a href="about.html">About</a
+          ><a aria-current="page" href="products.html">Products</a
+          ><a href="services.html">Services</a><a href="contact.html">Contact</a
+          ><a class="lang-link" href="../products.html">AR</a
+          ><a class="btn btn-primary" href="contact.html">Request Today's Price</a>
+        </div>
+      </nav>
     </header>
-    <main>
+    <main id="main" tabindex="-1">
       <section class="page-hero">
         <div class="container">
           <div class="eyebrow">Products</div>
@@ -52,6 +84,26 @@
         </div>
       </section>
     </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="footer-brand">Al Nesour Feeds</div>
+          <p>Feed raw materials and finished feed for traders, factories, and large farms.</p>
+        </div>
+        <div>
+          <h2>Quick links</h2>
+          <a href="about.html">About</a><a href="products.html">Products</a
+          ><a href="services.html">Services</a><a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <a class="tel" href="https://wa.me/201022232052">+20 10 2223 2052</a
+          ><a href="https://www.facebook.com/AlNesourFeeds">Facebook</a
+          ><a href="https://maps.app.goo.gl/C7hu8ZJvP3u15MHq7">View our location</a>
+        </div>
+      </div>
+      <div class="container footer-bottom"><span>Al Nesour Feeds</span><span>© 2026</span></div>
+    </footer>
     <script src="../assets/js/products-data.js" defer></script>
     <script src="../assets/js/products.js" defer></script>
     <script src="../assets/js/main.js" defer></script>

@@ -47,6 +47,18 @@ const paths = [
   'en/services.html',
   'en/contact.html',
 ];
+const equivalentLocales = {
+  'index.html': 'en/index.html',
+  'about.html': 'en/about.html',
+  'products.html': 'en/products.html',
+  'services.html': 'en/services.html',
+  'contact.html': 'en/contact.html',
+  'en/index.html': 'index.html',
+  'en/about.html': 'about.html',
+  'en/products.html': 'products.html',
+  'en/services.html': 'services.html',
+  'en/contact.html': 'contact.html',
+};
 const viewports = [
   [1440, 900],
   [1024, 768],
@@ -71,11 +83,61 @@ try {
       const metrics = await page.evaluate(() => ({
         h1Count: document.querySelectorAll('h1').length,
         overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+        header: Boolean(document.querySelector('.site-header')),
+        footer: Boolean(document.querySelector('.site-footer')),
+        skipLink: document.querySelector('.skip-link')?.getAttribute('href') === '#main',
+        main: document.querySelectorAll('main#main').length === 1,
+        menuToggle: Boolean(document.querySelector('[data-menu-toggle][aria-controls="mobile-navigation"]')),
+        languagePath: document
+          .querySelector('.header-actions .lang-link')
+          ?.getAttribute('href')
+          ?.replace(/^\.\.\//, ''),
+        currentPage: document.querySelectorAll('.main-nav [aria-current="page"]').length === 1,
       }));
-      if (!response?.ok() || metrics.h1Count !== 1 || metrics.overflow || errors.length)
+      if (
+        !response?.ok() ||
+        metrics.h1Count !== 1 ||
+        metrics.overflow ||
+        !metrics.header ||
+        !metrics.footer ||
+        !metrics.skipLink ||
+        !metrics.main ||
+        !metrics.menuToggle ||
+        metrics.languagePath !== equivalentLocales[path] ||
+        !metrics.currentPage ||
+        errors.length
+      )
         failures.push({ path, width, height, metrics, errors });
       await page.close();
     }
+  }
+
+  for (const path of paths) {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await page.goto(`http://127.0.0.1:${port}/${path}`, { waitUntil: 'domcontentloaded' });
+    await page.click('[data-menu-toggle]');
+    const opened = await page.evaluate(() => ({
+      expanded: document.querySelector('[data-menu-toggle]')?.getAttribute('aria-expanded'),
+      hidden: document.querySelector('[data-mobile-nav]')?.getAttribute('aria-hidden'),
+      visible: document.querySelector('[data-mobile-nav]')?.classList.contains('is-open'),
+    }));
+    await page.keyboard.press('Escape');
+    const closed = await page.evaluate(() => ({
+      expanded: document.querySelector('[data-menu-toggle]')?.getAttribute('aria-expanded'),
+      hidden: document.querySelector('[data-mobile-nav]')?.getAttribute('aria-hidden'),
+      visible: document.querySelector('[data-mobile-nav]')?.classList.contains('is-open'),
+    }));
+    if (
+      opened.expanded !== 'true' ||
+      opened.hidden !== 'false' ||
+      !opened.visible ||
+      closed.expanded !== 'false' ||
+      closed.hidden !== 'true' ||
+      closed.visible
+    ) {
+      failures.push({ path, test: 'mobile-menu', opened, closed });
+    }
+    await page.close();
   }
 
   for (const prefix of ['', 'en/']) {
@@ -105,7 +167,7 @@ try {
 
 console.log(
   JSON.stringify(
-    { checked: paths.length * viewports.length + 2, failures, passed: !failures.length },
+    { checked: paths.length * viewports.length + paths.length + 2, failures, passed: !failures.length },
     null,
     2
   )

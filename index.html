@@ -8,6 +8,12 @@
       name="description"
       content="توريد خامات الأعلاف والأعلاف الجاهزة للتجار والمصانع والمزارع في مصر."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="alternate" hreflang="en" href="en/index.html" />
   </head>
@@ -18,7 +24,7 @@
         <a class="wordmark" href="index.html"
           ><strong>شركة النسور للأعلاف</strong><small>AL NESOUR FEEDS</small></a
         >
-        <nav class="main-nav" aria-label="التنقل الرئيسي">
+        <nav id="primary-navigation" class="main-nav" aria-label="التنقل الرئيسي">
           <a aria-current="page" href="index.html">الرئيسية</a><a href="about.html">من نحن</a
           ><a href="products.html">المنتجات</a><a href="services.html">خدماتنا</a
           ><a href="contact.html">تواصل معنا</a>
@@ -26,13 +32,29 @@
         <div class="header-actions">
           <a class="lang-link" href="en/index.html">EN</a
           ><a class="btn btn-primary" href="contact.html">اطلب سعر اليوم</a
-          ><button class="menu-toggle" data-menu-toggle aria-expanded="false">☰</button>
+          ><button
+            class="menu-toggle"
+            type="button"
+            data-menu-toggle
+            aria-expanded="false"
+            aria-controls="mobile-navigation"
+            aria-label="فتح قائمة التنقل"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
         </div>
       </div>
-      <nav class="mobile-nav" data-mobile-nav>
+      <nav
+        id="mobile-navigation"
+        class="mobile-nav"
+        data-mobile-nav
+        aria-label="التنقل على الهاتف"
+        aria-hidden="true"
+      >
         <div class="mobile-nav-inner">
-          <a href="about.html">من نحن</a><a href="products.html">المنتجات</a
-          ><a href="services.html">خدماتنا</a><a href="contact.html">تواصل معنا</a
+          <a aria-current="page" href="index.html">الرئيسية</a><a href="about.html">من نحن</a
+          ><a href="products.html">المنتجات</a><a href="services.html">خدماتنا</a
+          ><a href="contact.html">تواصل معنا</a><a class="lang-link" href="en/index.html">EN</a
           ><a class="btn btn-primary" href="contact.html">اطلب سعر اليوم</a>
         </div>
       </nav>
@@ -203,12 +225,12 @@
       <div class="container footer-grid">
         <div>
           <div class="footer-brand">شركة النسور للأعلاف</div>
-          <p>Al Nesour Feeds — توريد خامات الأعلاف والأعلاف الجاهزة للأنشطة التجارية في مصر.</p>
+          <p>توريد خامات الأعلاف والأعلاف الجاهزة للتجار والمصانع والمزارع الكبرى.</p>
         </div>
         <div>
           <h2>روابط سريعة</h2>
           <a href="about.html">من نحن</a><a href="products.html">المنتجات</a
-          ><a href="services.html">خدماتنا</a>
+          ><a href="services.html">خدماتنا</a><a href="contact.html">تواصل معنا</a>
         </div>
         <div>
           <h2>تواصل</h2>
@@ -217,6 +239,7 @@
           ><a href="https://maps.app.goo.gl/C7hu8ZJvP3u15MHq7">موقعنا على الخريطة</a>
         </div>
       </div>
+      <div class="container footer-bottom"><span>شركة النسور للأعلاف</span><span>© 2026</span></div>
     </footer>
     <script src="assets/js/products-data.js" defer></script>
     <script src="assets/js/products.js" defer></script>
