@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status:** Planned
+**Status:** Complete (2026-08-27)
 **Priority:** High
 **Depends on:** TASK-001 — Complete and approved
 **Implementation scope:** Global site shell only

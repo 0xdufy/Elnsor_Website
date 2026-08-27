@@ -112,6 +112,52 @@ try {
     }
   }
 
+  {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    const errors = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.goto(`http://127.0.0.1:${port}/index.html`, { waitUntil: 'domcontentloaded' });
+    const homepage = await page.evaluate(() => {
+      const productIds = [...document.querySelectorAll('[data-products-grid] [data-product-id]')].map(
+        (card) => card.dataset.productId
+      );
+      const familyProductIds = [
+        ...document.querySelectorAll('[data-products-grid] [data-product-ids]'),
+      ].flatMap((card) => card.dataset.productIds.split(','));
+      const renderedProductIds = [...productIds, ...familyProductIds];
+      const enabledIds = window.ALNESOUR_PRODUCTS.filter((product) => product.enabled === true).map(
+        (product) => product.id
+      );
+      return {
+        hero: Boolean(document.querySelector('.home-hero')),
+        heroMedia: Boolean(document.querySelector('.home-hero-media picture img')),
+        heroOverlay: Boolean(document.querySelector('.home-hero-overlay')),
+        heroPrimaryCta:
+          document.querySelector('.home-hero .btn-primary')?.textContent.trim() === 'اطلب سعر اليوم',
+        productPreview: renderedProductIds.length > 0,
+        onlyEnabledProducts: renderedProductIds.every((id) => enabledIds.includes(id)),
+        soybeanFamily: Boolean(document.querySelector('[data-product-ids*="soybean-hulls-fine"]')),
+        processSteps: document.querySelectorAll('.home-process-list > li').length,
+        finalCta: Boolean(document.querySelector('.home-cta a[href^="https://wa.me/201022232052"]')),
+      };
+    });
+    if (
+      !homepage.hero ||
+      !homepage.heroMedia ||
+      !homepage.heroOverlay ||
+      !homepage.heroPrimaryCta ||
+      !homepage.productPreview ||
+      !homepage.onlyEnabledProducts ||
+      !homepage.soybeanFamily ||
+      homepage.processSteps !== 4 ||
+      !homepage.finalCta ||
+      errors.length
+    ) {
+      failures.push({ path: 'index.html', test: 'homepage', homepage, errors });
+    }
+    await page.close();
+  }
+
   for (const path of paths) {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await page.goto(`http://127.0.0.1:${port}/${path}`, { waitUntil: 'domcontentloaded' });
@@ -167,7 +213,11 @@ try {
 
 console.log(
   JSON.stringify(
-    { checked: paths.length * viewports.length + paths.length + 2, failures, passed: !failures.length },
+    {
+      checked: paths.length * viewports.length + paths.length + 3,
+      failures,
+      passed: !failures.length,
+    },
     null,
     2
   )
