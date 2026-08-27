@@ -1,36 +1,34 @@
 # Al Nesour Feeds Website
 
-A bilingual Arabic/English B2B corporate website built with semantic HTML5, shared CSS, and vanilla JavaScript.
+Arabic-first bilingual B2B corporate website for Al Nesour Feeds, built with semantic HTML5, CSS3, and vanilla JavaScript.
 
 ## Run locally
 
-Start any static server from the repository root, for example:
+Start a static server from the repository root, for example:
 
 ```powershell
 python -m http.server 4173
 ```
 
-Then open `http://127.0.0.1:4173/`.
+Then visit `http://127.0.0.1:4173/`.
 
-## Content maintenance
+## Documentation
 
-- Products are centralized in `assets/js/products-data.js`. Add a product object there using the existing bilingual fields. The products page builds filters only for categories that contain at least one product.
-- The temporary wordmark is the `.wordmark` link in each page header and footer. A future approved image logo can replace its text without changing header layout.
-- WhatsApp behavior is in `assets/js/main.js`, `assets/js/products.js`, and `assets/js/quote.js`. The confirmed destination is `201022232052`.
-- Facebook and Google Maps links are present directly in each page footer/contact block.
-- Shared design tokens are in `assets/css/tokens.css`; components and responsive rules are in `assets/css/styles.css`.
+- [`AGENTS.md`](AGENTS.md) is the durable source of truth for implementation, publication rules, confirmed business facts, and technical guardrails.
+- [`DESIGN.md`](DESIGN.md) will become the approved design-system reference after the visual-direction review.
+- [`IMAGE_SOURCES.md`](IMAGE_SOURCES.md) records asset provenance only.
+- [`tasks/`](tasks/) contains scoped task briefs, audits, decisions, and review records.
 
-## Production confirmations
+## Maintenance entry points
 
-Before public launch, confirm:
+- Product content is centralized in `assets/js/products-data.js`. The confirmed catalogue and variant-ready structure will be implemented in the dedicated product-data task; do not add unconfirmed products as public stock.
+- Global behavior is in `assets/js/main.js`; product rendering in `assets/js/products.js`; WhatsApp quote construction in `assets/js/quote.js`.
+- The WhatsApp destination is `201022232052`.
+- Shared tokens and styling are in `assets/css/`.
+- A future approved logo can replace the header/footer wordmark without changing the layout contract.
 
-1. Final logo / brand mark.
-2. Exact English commercial name for **زيت منزوع** (currently **Degummed Soybean Oil** as a working translation).
-3. Exact soybean-hull variants if each should have its own product card.
-4. Final textual business address, if one should be displayed.
-5. Production domain for canonical URLs, `x-default`, and `sitemap.xml` entries.
-6. Whether any client relationship, including United Oil, may be shown publicly.
-7. Whether supplier names or logos may be shown publicly.
-8. Any certifications, statistics, years of experience, or capacity figures supported by documentation.
+## Before production launch
 
-No client/supplier names, prices, product specifications, statistics, testimonials, certifications, or unconfirmed addresses are published in this version.
+Confirm the final logo, English commercial name for `زيت منزوع`, soybean-hull variant presentation, written address, production domain, any public client/supplier permissions, and any documented certifications, capacities, or specifications.
+
+GitHub Pages remains a testing/preview environment. Do not configure final canonical, `x-default`, or sitemap URLs until the production domain is known.
