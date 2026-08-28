@@ -5,19 +5,19 @@
   const isLocalizedText = (value) =>
     Boolean(
       value &&
-        typeof value === 'object' &&
-        typeof value.ar === 'string' &&
-        value.ar.trim() &&
-        typeof value.en === 'string' &&
-        value.en.trim()
+      typeof value === 'object' &&
+      typeof value.ar === 'string' &&
+      value.ar.trim() &&
+      typeof value.en === 'string' &&
+      value.en.trim()
     );
 
   const isValidImage = (image) =>
     Boolean(
       image &&
-        typeof image === 'object' &&
-        imageStates.includes(image.status) &&
-        (image.status === 'missing' || (typeof image.src === 'string' && image.src.trim()))
+      typeof image === 'object' &&
+      imageStates.includes(image.status) &&
+      (image.status === 'missing' || (typeof image.src === 'string' && image.src.trim()))
     );
 
   const validateCatalogue = (catalogue) => {
@@ -54,17 +54,21 @@
     const sortOrders = new Set();
     (catalogue.products || []).forEach((product, index) => {
       const reference = product?.id || `index-${index}`;
-      if (!product?.id || productIds.has(product.id)) issues.push(`duplicate-product-id:${reference}`);
+      if (!product?.id || productIds.has(product.id))
+        issues.push(`duplicate-product-id:${reference}`);
       productIds.add(product?.id);
-      if (!categoryIds.has(product?.categoryId)) issues.push(`unknown-product-category:${reference}`);
+      if (!categoryIds.has(product?.categoryId))
+        issues.push(`unknown-product-category:${reference}`);
       if (product?.familyId && !familyIds.has(product.familyId)) {
         issues.push(`unknown-product-family:${reference}`);
       }
-      if (typeof product?.enabled !== 'boolean') issues.push(`invalid-product-enabled:${reference}`);
+      if (typeof product?.enabled !== 'boolean')
+        issues.push(`invalid-product-enabled:${reference}`);
       if (!availabilityStates.includes(product?.availability)) {
         issues.push(`invalid-product-availability:${reference}`);
       }
-      if (!Number.isFinite(product?.sortOrder)) issues.push(`invalid-product-sort-order:${reference}`);
+      if (!Number.isFinite(product?.sortOrder))
+        issues.push(`invalid-product-sort-order:${reference}`);
 
       const sortKey = `${product?.categoryId || 'unknown'}:${product?.familyId || reference}:${product?.sortOrder}`;
       if (sortOrders.has(sortKey)) issues.push(`duplicate-product-sort-order:${sortKey}`);
@@ -72,7 +76,8 @@
 
       if (product?.enabled === true) {
         if (!isLocalizedText(product.name)) issues.push(`missing-product-name:${reference}`);
-        if (!isLocalizedText(product.description)) issues.push(`missing-product-description:${reference}`);
+        if (!isLocalizedText(product.description))
+          issues.push(`missing-product-description:${reference}`);
         if (!isValidImage(product.image)) issues.push(`invalid-product-image:${reference}`);
       }
     });

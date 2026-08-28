@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>المنتجات | شركة النسور للأعلاف</title>
-    <meta name="description" content="خامات أعلاف وأعلاف جاهزة من شركة النسور للأعلاف." />
+    <title>خامات الأعلاف والأعلاف الجاهزة | شركة النسور للأعلاف</title>
+    <meta
+      name="description"
+      content="خامات أعلاف وأعلاف جاهزة للتوريد التجاري. اسأل شركة النسور للأعلاف عن السعر والتوفر حسب المنتج والكمية ومكان التسليم."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -58,23 +61,102 @@
       </nav>
     </header>
     <main id="main" tabindex="-1">
-      <section class="page-hero">
-        <div class="container">
-          <div class="eyebrow">المنتجات</div>
-          <h1>خامات وأعلاف جاهزة لطلباتك التجارية</h1>
-          <p>اطلب سعر اليوم والتوفر بحسب المنتج والكمية ومكان التسليم.</p>
+      <section class="page-hero catalogue-hero">
+        <div class="container catalogue-hero-layout">
+          <div>
+            <div class="eyebrow">المنتجات</div>
+            <h1>خامات أعلاف وأعلاف جاهزة للتوريد التجاري</h1>
+            <p>
+              تعرف على المنتجات المتاحة واطلب سعر اليوم والتوفر حسب المنتج والكمية ومكان التسليم.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="contact.html">اطلب سعر اليوم</a>
         </div>
       </section>
-      <section class="section product-page">
+      <section class="section product-page" aria-labelledby="catalogue-title">
         <div class="container">
-          <div class="filter-bar">
-            <button class="filter-btn" data-filter="all" aria-pressed="true">الكل</button
-            ><button class="filter-btn" data-filter="raw" aria-pressed="false">خامات الأعلاف</button
-            ><button class="filter-btn" data-filter="finished" aria-pressed="false">
+          <div class="catalogue-heading">
+            <div>
+              <div class="eyebrow">كتالوج التوريد</div>
+              <h2 id="catalogue-title">المنتجات المتاحة للاستفسار التجاري</h2>
+            </div>
+            <p>جميع المنتجات تخضع للسعر والتوفر وقت الطلب.</p>
+          </div>
+          <nav class="filter-bar" aria-label="تصنيف المنتجات">
+            <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">
+              كل المنتجات
+            </button>
+            <button class="filter-btn" type="button" data-filter="raw" aria-pressed="false">
+              خامات الأعلاف
+            </button>
+            <button class="filter-btn" type="button" data-filter="finished" aria-pressed="false">
               الأعلاف الجاهزة
             </button>
+          </nav>
+          <div class="catalogue-layout" data-products-grid data-products-context="catalogue">
+            <section
+              class="catalogue-category"
+              data-catalogue-category="raw"
+              aria-labelledby="raw-title"
+            >
+              <div class="catalogue-section-heading">
+                <div>
+                  <div class="eyebrow">للتوريد التجاري</div>
+                  <h2 id="raw-title" data-category-title></h2>
+                </div>
+              </div>
+              <div data-catalogue-family="soybean-hulls"></div>
+              <div class="catalogue-standalone-grid" data-catalogue-products="raw"></div>
+            </section>
+
+            <section
+              class="catalogue-category"
+              data-catalogue-category="finished"
+              aria-labelledby="finished-title"
+            >
+              <div class="catalogue-section-heading">
+                <div>
+                  <div class="eyebrow">منتجات مُصنّعة</div>
+                  <h2 id="finished-title" data-category-title></h2>
+                </div>
+                <div data-catalogue-family-intro="finished-feed"></div>
+              </div>
+              <div class="finished-products-grid" data-catalogue-products="finished"></div>
+            </section>
           </div>
-          <div class="product-grid" data-products-grid></div>
+          <p class="catalogue-fallback" data-catalogue-fallback>
+            تعذر عرض المنتجات حاليًا. تواصل معنا للاستفسار عن المنتجات المتاحة.
+          </p>
+        </div>
+      </section>
+      <section class="section catalogue-guidance" aria-labelledby="guidance-title">
+        <div class="container guidance-layout">
+          <div>
+            <div class="eyebrow">لتجهيز عرض السعر</div>
+            <h2 id="guidance-title">أرسل احتياجك التجاري في رسالة واحدة</h2>
+            <p>كلما كانت التفاصيل واضحة، كان تنسيق السعر والتوفر أسهل.</p>
+          </div>
+          <ol class="guidance-list">
+            <li><strong>المنتج</strong><span>اكتب اسم المنتج أو النوع المطلوب.</span></li>
+            <li><strong>الكمية</strong><span>أضف الكمية التقريبية التي تحتاجها.</span></li>
+            <li><strong>مكان التسليم</strong><span>اذكر المحافظة أو موقع التسليم.</span></li>
+          </ol>
+        </div>
+      </section>
+      <section class="catalogue-cta" aria-labelledby="catalogue-cta-title">
+        <div class="container catalogue-cta-wrap">
+          <div>
+            <div class="eyebrow">استفسار سريع</div>
+            <h2 id="catalogue-cta-title">اطلب السعر والتوفر حسب احتياجك</h2>
+            <p>أرسل اسم المنتج والكمية ومكان التسليم، وسنتواصل معك لتنسيق تفاصيل الطلب.</p>
+          </div>
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/201022232052"
+            target="_blank"
+            rel="noopener"
+            >ابدأ عبر واتساب</a
+          >
         </div>
       </section>
     </main>

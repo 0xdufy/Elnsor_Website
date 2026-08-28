@@ -4,13 +4,13 @@
 
 ## Temporary image inventory
 
-| Section | Current asset | Status | Future requirement | Recommended aspect ratio |
-| --- | --- | --- | --- | --- |
-| Hero | `assets/images/hero/feed-handling-1600.webp` with 960px responsive source | Temporary visual context; not approved final photography | Documentary industrial feed-supply activity with a clear Arabic-copy safe zone, natural light, bulk materials/loading, no brands, logos, or fake text | 16:9 desktop; related mobile crop |
-| Soybean-hulls family | `assets/images/products/soybean-hulls.webp` | Temporary product study | Product-specific material-handling image that can represent the family without implying a specification | 16:10 |
-| Fava-bean hulls | No image rendered | Deliberately image-free to avoid misrepresentation | Separate raw-material documentary study | 16:10 |
-| Oil product | `assets/images/products/degummed-soybean-oil.webp` | Temporary working-name illustration | Unbranded industrial oil-handling image after its exact English commercial name is confirmed | 16:10 |
-| Finished-feed family | `assets/images/products/finished-feed-documentary.png` | Temporary category image | Unbranded, documentary finished-feed handling image; do not depict unconfirmed formulations or packaging | 16:10 |
+| Section              | Current asset                                                             | Status                                                   | Future requirement                                                                                                                                    | Recommended aspect ratio          |
+| -------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| Hero                 | `assets/images/hero/feed-handling-1600.webp` with 960px responsive source | Temporary visual context; not approved final photography | Documentary industrial feed-supply activity with a clear Arabic-copy safe zone, natural light, bulk materials/loading, no brands, logos, or fake text | 16:9 desktop; related mobile crop |
+| Soybean-hulls family | `assets/images/products/soybean-hulls.webp`                               | Temporary product study                                  | Product-specific material-handling image that can represent the family without implying a specification                                               | 16:10                             |
+| Fava-bean hulls      | No image rendered                                                         | Deliberately image-free to avoid misrepresentation       | Separate raw-material documentary study                                                                                                               | 16:10                             |
+| Oil product          | `assets/images/products/degummed-soybean-oil.webp`                        | Temporary working-name illustration                      | Unbranded industrial oil-handling image after its exact English commercial name is confirmed                                                          | 16:10                             |
+| Finished-feed family | `assets/images/products/finished-feed-documentary.png`                    | Temporary category image                                 | Unbranded, documentary finished-feed handling image; do not depict unconfirmed formulations or packaging                                              | 16:10                             |
 
 No new final image was generated for this task.
 

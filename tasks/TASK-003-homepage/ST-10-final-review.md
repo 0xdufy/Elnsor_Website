@@ -13,13 +13,13 @@
 
 ## Validation
 
-| Check | Result |
-| --- | --- |
-| Homepage structural smoke checks | Added Hero/media/overlay/CTA, enabled product-source, soybean-family, four-step process, and final-CTA assertions. |
-| Required viewport checks | Passed without horizontal overflow at 1440×900, 1024×768, 768×1024, and 390×844. |
-| Visual review | Screenshots captured and inspected at all required Arabic viewport sizes. |
-| Global regressions | Header/footer, mobile navigation, all ten localized pages, and both quote flows remained covered by the maintained smoke test. |
-| Final imagery | Deferred and documented; no final Hero or product imagery was generated. |
+| Check                            | Result                                                                                                                         |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Homepage structural smoke checks | Added Hero/media/overlay/CTA, enabled product-source, soybean-family, four-step process, and final-CTA assertions.             |
+| Required viewport checks         | Passed without horizontal overflow at 1440×900, 1024×768, 768×1024, and 390×844.                                               |
+| Visual review                    | Screenshots captured and inspected at all required Arabic viewport sizes.                                                      |
+| Global regressions               | Header/footer, mobile navigation, all ten localized pages, and both quote flows remained covered by the maintained smoke test. |
+| Final imagery                    | Deferred and documented; no final Hero or product imagery was generated.                                                       |
 
 ## Deferred work
 

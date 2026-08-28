@@ -5,8 +5,11 @@
   const locale = document.documentElement.lang === 'ar' ? 'ar' : 'en';
   const assetBase = locale === 'ar' ? '' : '../';
   const ui = {
-    ar: { requestPrice: 'اطلب سعر اليوم' },
-    en: { requestPrice: "Ask for Today's Price" },
+    ar: { requestPrice: 'اسأل عن السعر والتوفر', availability: 'اسأل عن السعر والتوفر' },
+    en: {
+      requestPrice: 'Ask about price and availability',
+      availability: 'Ask about price and availability',
+    },
   }[locale];
   const localized = (value) => value?.[locale] || '';
   const isPublicProduct = (product) =>
@@ -21,8 +24,7 @@
     .sort(
       (first, second) =>
         catalogue.categories[first.categoryId].sortOrder -
-          catalogue.categories[second.categoryId].sortOrder ||
-        first.sortOrder - second.sortOrder
+          catalogue.categories[second.categoryId].sortOrder || first.sortOrder - second.sortOrder
     );
 
   const create = (tagName, className, text) => {
@@ -61,13 +63,17 @@
     return link;
   };
 
-  const productCard = (product) => {
+  const productCard = (product, options = {}) => {
     const card = create('article', 'product-card');
     card.dataset.category = product.categoryId;
     card.dataset.productId = product.id;
-    const productImage = imageElement(product.image, localized(product.name));
-    if (productImage) card.append(productImage);
-    else card.classList.add('product-card-text-only');
+    if (options.showImage !== false) {
+      const productImage = imageElement(product.image, localized(product.name));
+      if (productImage) card.append(productImage);
+      else card.classList.add('product-card-text-only');
+    } else {
+      card.classList.add('product-card-text-only');
+    }
 
     const content = create('div', 'product-content');
     content.append(
@@ -90,7 +96,9 @@
     else card.classList.add('product-card-text-only');
 
     const content = create('div', 'product-content');
-    const variants = products.map((product) => localized(product.name)).join(locale === 'ar' ? '، ' : ', ');
+    const variants = products
+      .map((product) => localized(product.name))
+      .join(locale === 'ar' ? '، ' : ', ');
     const availability = localized(catalogue.availability[products[0].availability]?.name);
     content.append(
       create('span', 'product-category', localized(catalogue.categories[family.categoryId].name)),
@@ -128,14 +136,101 @@
     const standaloneCards = publicProducts
       .filter((product) => !product.familyId && product.placement?.homepage === true)
       .map((product) => ({ sortOrder: product.sortOrder, element: productCard(product) }));
-    return [...familyCards, ...standaloneCards].sort((first, second) => first.sortOrder - second.sortOrder);
+    return [...familyCards, ...standaloneCards].sort(
+      (first, second) => first.sortOrder - second.sortOrder
+    );
   };
 
   const renderHomepage = (grid) =>
     grid.replaceChildren(...homepageCards().map(({ element }) => element));
 
   const renderCatalogue = (grid) => {
-    grid.replaceChildren(...publicProducts.map(productCard));
+    const categoryTitle = (section, category) => {
+      const title = section.querySelector('[data-category-title]');
+      if (title) title.textContent = localized(category.name);
+    };
+
+    const familyPresentation = (family, products) => {
+      const element = create('article', 'catalogue-family');
+      element.dataset.category = family.categoryId;
+      element.dataset.familyId = family.id;
+
+      const media = imageElement(family.image, localized(family.name));
+      if (media) element.append(media);
+
+      const content = create('div', 'catalogue-family-content');
+      const heading = create('div', 'catalogue-family-heading');
+      heading.append(
+        create('span', 'product-category', localized(catalogue.categories[family.categoryId].name)),
+        create('h3', '', localized(family.name)),
+        create('p', '', localized(family.description)),
+        actionLink(ui.availability, localized(family.name))
+      );
+      const variants = create('div', 'variant-list');
+      products.forEach((product) => {
+        const variant = create('article', 'product-card product-variant');
+        variant.dataset.category = product.categoryId;
+        variant.dataset.productId = product.id;
+        const variantName = localized(product.variant?.name) || localized(product.name);
+        variant.append(
+          create('h4', '', variantName),
+          create('p', '', localized(product.description)),
+          actionLink(ui.requestPrice, localized(product.name))
+        );
+        variants.append(variant);
+      });
+      content.append(heading, variants);
+      element.append(content);
+      return element;
+    };
+
+    const familyIntro = (family) => {
+      const intro = create('div', 'finished-family-intro');
+      const image = imageElement(family.image, localized(family.name));
+      if (image) intro.append(image);
+      intro.append(create('p', '', localized(family.description)));
+      return intro;
+    };
+
+    const catalogueSections = grid.querySelectorAll('[data-catalogue-category]');
+    if (!catalogueSections.length) {
+      grid.replaceChildren(...publicProducts.map(productCard));
+    } else {
+      const categories = Object.values(catalogue.categories).sort(
+        (first, second) => first.sortOrder - second.sortOrder
+      );
+      categories.forEach((category) => {
+        const section = grid.querySelector(`[data-catalogue-category="${category.id}"]`);
+        if (!section) return;
+        categoryTitle(section, category);
+
+        section.querySelectorAll('[data-catalogue-family]').forEach((slot) => {
+          const family = catalogue.families[slot.dataset.catalogueFamily];
+          const products = publicProducts.filter((product) => product.familyId === family?.id);
+          if (family?.enabled === true && products.length)
+            slot.replaceChildren(familyPresentation(family, products));
+          else slot.replaceChildren();
+        });
+
+        section.querySelectorAll('[data-catalogue-family-intro]').forEach((slot) => {
+          const family = catalogue.families[slot.dataset.catalogueFamilyIntro];
+          if (family?.enabled === true) slot.replaceChildren(familyIntro(family));
+          else slot.replaceChildren();
+        });
+
+        section.querySelectorAll('[data-catalogue-products]').forEach((slot) => {
+          const products = publicProducts.filter((product) => {
+            if (product.categoryId !== category.id) return false;
+            return slot.dataset.catalogueProducts === 'raw' ? !product.familyId : true;
+          });
+          slot.replaceChildren(
+            ...products.map((product) => productCard(product, { showImage: false }))
+          );
+        });
+      });
+    }
+
+    grid.parentElement?.querySelector('[data-catalogue-fallback]')?.remove();
     const filterScope = grid.closest('.product-page') || grid.parentElement;
     filterScope?.querySelectorAll('[data-filter]').forEach((button) => {
       button.addEventListener('click', () => {
@@ -144,8 +239,14 @@
           .forEach((item) => item.setAttribute('aria-pressed', 'false'));
         button.setAttribute('aria-pressed', 'true');
         const filter = button.dataset.filter;
-        grid.querySelectorAll('.product-card').forEach((card) => {
-          card.hidden = filter !== 'all' && card.dataset.category !== filter;
+        grid.querySelectorAll('[data-category]').forEach((item) => {
+          item.hidden = filter !== 'all' && item.dataset.category !== filter;
+        });
+        grid.querySelectorAll('[data-catalogue-category]').forEach((section) => {
+          section.classList.toggle(
+            'is-filtered-out',
+            filter !== 'all' && section.dataset.catalogueCategory !== filter
+          );
         });
       });
     });

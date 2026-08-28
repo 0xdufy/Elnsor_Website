@@ -20,12 +20,12 @@ The objective is not to add more sections or visual effects.
 
 The objective is to create a homepage that immediately communicates:
 
-* what Al Nesour supplies;
-* who it supplies;
-* why the company is credible;
-* what products are available;
-* how supply works;
-* how to request today's price.
+- what Al Nesour supplies;
+- who it supplies;
+- why the company is credible;
+- what products are available;
+- how supply works;
+- how to request today's price.
 
 The homepage should feel like a real Egyptian B2B feed-supply company, not an editorial corporate template.
 
@@ -59,10 +59,10 @@ and the homepage-specific styles and behavior required by it.
 
 It may update:
 
-* `assets/css/styles.css`
-* `assets/js/products.js`
-* homepage-specific shared components where strictly necessary
-* tests related to the homepage
+- `assets/css/styles.css`
+- `assets/js/products.js`
+- homepage-specific shared components where strictly necessary
+- tests related to the homepage
 
 Do not redesign unrelated inner pages.
 
@@ -74,10 +74,10 @@ The English homepage is not the primary implementation target of TASK-003.
 
 `en/index.html` must remain:
 
-* functional;
-* responsive;
-* accessible;
-* compatible with shared CSS.
+- functional;
+- responsive;
+- accessible;
+- compatible with shared CSS.
 
 Do not perform the final English content rewrite in TASK-003.
 
@@ -99,14 +99,14 @@ Before final homepage implementation:
 
 OpenDesign should help answer:
 
-* Hero composition
-* information hierarchy
-* section rhythm
-* product-preview presentation
-* proof presentation
-* audience presentation
-* supply-process presentation
-* mobile section flow
+- Hero composition
+- information hierarchy
+- section rhythm
+- product-preview presentation
+- proof presentation
+- audience presentation
+- supply-process presentation
+- mobile section flow
 
 Do not allow OpenDesign to invent business facts.
 
@@ -116,27 +116,27 @@ Do not allow OpenDesign to invent business facts.
 
 The homepage should feel:
 
-* commercial;
-* direct;
-* modern;
-* established;
-* operational;
-* product-aware;
-* B2B;
-* easy to scan;
-* relevant to the Egyptian feed market.
+- commercial;
+- direct;
+- modern;
+- established;
+- operational;
+- product-aware;
+- B2B;
+- easy to scan;
+- relevant to the Egyptian feed market.
 
 Avoid:
 
-* editorial magazine layout;
-* SaaS landing-page style;
-* oversized empty sections;
-* excessive decorative numbering;
-* border-heavy corporate grids;
-* generic agricultural leaves;
-* decorative livestock illustrations;
-* fake luxury;
-* unnecessary animation.
+- editorial magazine layout;
+- SaaS landing-page style;
+- oversized empty sections;
+- excessive decorative numbering;
+- border-heavy corporate grids;
+- generic agricultural leaves;
+- decorative livestock illustrations;
+- fake luxury;
+- unnecessary animation.
 
 ---
 
@@ -205,9 +205,7 @@ Preferred implementation:
 
   <div class="home-hero-overlay"></div>
 
-  <div class="container home-hero-content">
-    ...
-  </div>
+  <div class="container home-hero-content">...</div>
 </section>
 ```
 
@@ -215,11 +213,11 @@ or an equivalent semantic structure.
 
 Prefer a real `<img>` / `<picture>` element over a CSS background if this provides better:
 
-* responsive images;
-* intrinsic dimensions;
-* preload behavior;
-* performance control;
-* later asset replacement.
+- responsive images;
+- intrinsic dimensions;
+- preload behavior;
+- performance control;
+- later asset replacement.
 
 The image is visual context rather than informational content, so an empty alt may be appropriate if the visible text already communicates the information.
 
@@ -233,10 +231,10 @@ The owner wants to think about imagery later.
 
 Therefore:
 
-* use an existing suitable repository image only as a temporary placeholder if necessary;
-* clearly mark it as temporary in task documentation;
-* do not treat it as approved final photography;
-* build the Hero so replacing the image later requires no layout rewrite.
+- use an existing suitable repository image only as a temporary placeholder if necessary;
+- clearly mark it as temporary in task documentation;
+- do not treat it as approved final photography;
+- build the Hero so replacing the image later requires no layout rewrite.
 
 No image-generation conversation is required yet.
 
@@ -248,17 +246,17 @@ The future final Hero image should eventually be designed around the layout.
 
 It will need:
 
-* realistic industrial feed-supply setting;
-* documentary photography style;
-* natural light;
-* commercial quantities;
-* warehouse / materials / loading / supply activity;
-* no visible external brands;
-* no fake text;
-* no logos;
-* no unrealistic machinery;
-* enough negative space behind the Hero copy;
-* crop flexibility for desktop and mobile.
+- realistic industrial feed-supply setting;
+- documentary photography style;
+- natural light;
+- commercial quantities;
+- warehouse / materials / loading / supply activity;
+- no visible external brands;
+- no fake text;
+- no logos;
+- no unrealistic machinery;
+- enough negative space behind the Hero copy;
+- crop flexibility for desktop and mobile.
 
 Do not generate it now.
 
@@ -270,10 +268,10 @@ Use an operational-green overlay.
 
 The overlay must:
 
-* preserve visible image detail;
-* provide strong text contrast;
-* avoid making the image irrelevant;
-* avoid looking like a solid green rectangle.
+- preserve visible image detail;
+- provide strong text contrast;
+- avoid making the image irrelevant;
+- avoid looking like a solid green rectangle.
 
 Do not hard-code the final opacity based only on the temporary image.
 
@@ -291,10 +289,10 @@ The Hero should feel substantial but not waste screen space.
 
 Desktop should show:
 
-* headline;
-* supporting text;
-* CTAs;
-* meaningful image context
+- headline;
+- supporting text;
+- CTAs;
+- meaningful image context
 
 without forcing the user to scroll through an oversized near-full-screen billboard.
 
@@ -362,12 +360,12 @@ Do not introduce three or four competing Hero actions.
 
 Ensure:
 
-* strong contrast;
-* comfortable H1 width;
-* readable Arabic line-height;
-* no text directly over a visually busy subject;
-* CTA visibility;
-* mobile text does not become too small.
+- strong contrast;
+- comfortable H1 width;
+- readable Arabic line-height;
+- no text directly over a visually busy subject;
+- CTA visibility;
+- mobile text does not become too small.
 
 Avoid extremely narrow H1 measures that create five or six short lines.
 
@@ -379,10 +377,10 @@ The Proof section should communicate confirmed facts quickly.
 
 Use:
 
-* خبرة تتجاوز 20 عامًا في سوق الأعلاف
-* توريد مباشر من المصانع
-* تنسيق التوريد والتوصيل لجميع المحافظات
-* خامات أعلاف وأعلاف جاهزة للطلبات التجارية
+- خبرة تتجاوز 20 عامًا في سوق الأعلاف
+- توريد مباشر من المصانع
+- تنسيق التوريد والتوصيل لجميع المحافظات
+- خامات أعلاف وأعلاف جاهزة للطلبات التجارية
 
 Do not invent statistics.
 
@@ -405,9 +403,9 @@ The proof area should prioritize understandable statements.
 
 Possible visual approaches:
 
-* compact four-item trust bar;
-* icon + short statement;
-* typography-led proof row.
+- compact four-item trust bar;
+- icon + short statement;
+- typography-led proof row.
 
 Avoid decorative numbering.
 
@@ -456,7 +454,7 @@ Never hard-code a separate contradictory homepage product list.
 Only:
 
 ```js
-enabled === true
+enabled === true;
 ```
 
 products may appear.
@@ -464,7 +462,7 @@ products may appear.
 Featured homepage logic should use:
 
 ```js
-featured === true
+featured === true;
 ```
 
 where appropriate.
@@ -481,9 +479,9 @@ Recommended homepage grouping:
 
 Present as a product family:
 
-* ناعم
-* وسط
-* خشن
+- ناعم
+- وسط
+- خشن
 
 rather than necessarily rendering three visually identical cards.
 
@@ -499,9 +497,9 @@ Standalone item.
 
 Introduce as a category/family containing:
 
-* علف مواشي
-* علف بط
-* علف غنم
+- علف مواشي
+- علف بط
+- علف غنم
 
 The full Products page will handle deeper catalogue presentation later.
 
@@ -557,8 +555,8 @@ Existing assets may remain temporary.
 
 However:
 
-* do not use one misleading image to imply multiple visually different products are identical;
-* do not duplicate a single finished-feed sack image across the page in a way that feels fake.
+- do not use one misleading image to imply multiple visually different products are identical;
+- do not duplicate a single finished-feed sack image across the page in a way that feels fake.
 
 Where image quality is insufficient, use a restrained placeholder presentation and record the image requirement for later.
 
@@ -590,10 +588,10 @@ Avoid the current heavy two-card composition if it feels like another large Hero
 
 Explore:
 
-* asymmetric media/text composition;
-* compact category panels;
-* strong typography with image support;
-* useful direct links.
+- asymmetric media/text composition;
+- compact category panels;
+- strong typography with image support;
+- useful direct links.
 
 The two categories should feel clearly related.
 
@@ -607,12 +605,12 @@ The section should convert business capabilities into buying reasons.
 
 Approved facts:
 
-* أكثر من 20 عامًا من الخبرة في السوق
-* توريد مباشر من المصانع
-* أسعار تنافسية
-* كميات تجارية
-* مصادر توريد متنوعة
-* تنسيق النقل والتوصيل
+- أكثر من 20 عامًا من الخبرة في السوق
+- توريد مباشر من المصانع
+- أسعار تنافسية
+- كميات تجارية
+- مصادر توريد متنوعة
+- تنسيق النقل والتوصيل
 
 ---
 
@@ -650,10 +648,10 @@ Do not automatically use six boxed numbered cards.
 
 Explore:
 
-* 2×3 lightweight capability grid;
-* icon-led list;
-* divided columns;
-* text-led benefits.
+- 2×3 lightweight capability grid;
+- icon-led list;
+- divided columns;
+- text-led benefits.
 
 Use cards only if cards improve scanning.
 
@@ -665,9 +663,9 @@ No arbitrary `01 / 02 / 03`.
 
 Required audiences:
 
-* التجار
-* مصانع الأعلاف
-* المزارع الكبرى
+- التجار
+- مصانع الأعلاف
+- المزارع الكبرى
 
 Heading direction:
 
@@ -701,9 +699,9 @@ Make audience types easy to identify.
 
 Possible approaches:
 
-* three clean columns;
-* typographic segmented layout;
-* subtle contextual imagery later.
+- three clean columns;
+- typographic segmented layout;
+- subtle contextual imagery later.
 
 Do not require new images for this section in TASK-003.
 
@@ -721,11 +719,11 @@ Supporting copy:
 
 This section should communicate operational reach without inventing:
 
-* delivery times;
-* fleet size;
-* warehouses;
-* routes;
-* tonnage.
+- delivery times;
+- fleet size;
+- warehouses;
+- routes;
+- tonnage.
 
 ---
 
@@ -737,9 +735,9 @@ Evaluate whether it genuinely improves the section.
 
 Options:
 
-* simple accurate Egypt-outline graphic;
-* restrained logistics visual;
-* no map at all if copy is stronger without it.
+- simple accurate Egypt-outline graphic;
+- restrained logistics visual;
+- no map at all if copy is stronger without it.
 
 Do not use a distorted decorative pseudo-map just because one currently exists.
 
@@ -770,9 +768,9 @@ This is one place where sequential numbering is appropriate.
 
 The process should be:
 
-* visually simple;
-* easy to scan;
-* obviously sequential.
+- visually simple;
+- easy to scan;
+- obviously sequential.
 
 Numbering `1–4` is allowed here because order matters.
 
@@ -821,15 +819,15 @@ Create rhythm through controlled variation.
 
 For example:
 
-* Hero: image-led
-* Proof: compact
-* Products: card/media-led
-* Categories: split composition
-* Why: text capability grid
-* Audience: simple columns
-* Delivery: strong two-part section
-* Process: sequential
-* CTA: dark conversion band
+- Hero: image-led
+- Proof: compact
+- Products: card/media-led
+- Categories: split composition
+- Why: text capability grid
+- Audience: simple columns
+- Delivery: strong two-part section
+- Process: sequential
+- CTA: dark conversion band
 
 The page should feel designed as one journey.
 
@@ -841,15 +839,15 @@ Use approved surfaces intentionally.
 
 Suggested rhythm:
 
-* Hero: image + dark green overlay
-* Proof: deep/medium green or warm surface depending composition
-* Products: light
-* Categories: alternate neutral
-* Why: light/warm
-* Audience: controlled dark section if useful
-* Delivery: light
-* Process: warm neutral
-* Final CTA: forest
+- Hero: image + dark green overlay
+- Proof: deep/medium green or warm surface depending composition
+- Products: light
+- Categories: alternate neutral
+- Why: light/warm
+- Audience: controlled dark section if useful
+- Delivery: light
+- Process: warm neutral
+- Final CTA: forest
 
 Do not alternate colors mechanically.
 
@@ -861,21 +859,21 @@ Do not add decorative elements simply to fill space.
 
 Avoid:
 
-* random circles;
-* gold lines everywhere;
-* giant background text;
-* leaf patterns;
-* fake charts;
-* abstract blobs;
-* excessive eagle watermarks.
+- random circles;
+- gold lines everywhere;
+- giant background text;
+- leaf patterns;
+- fake charts;
+- abstract blobs;
+- excessive eagle watermarks.
 
 Every visual element should support:
 
-* hierarchy;
-* navigation;
-* trust;
-* product understanding;
-* conversion.
+- hierarchy;
+- navigation;
+- trust;
+- product understanding;
+- conversion.
 
 ---
 
@@ -885,20 +883,20 @@ Homepage may use subtle interaction feedback.
 
 Allowed:
 
-* button hover
-* product-card image scale of only a few percent
-* subtle link state
-* restrained reveal only if proven useful
+- button hover
+- product-card image scale of only a few percent
+- subtle link state
+- restrained reveal only if proven useful
 
 Avoid:
 
-* scroll-jacking;
-* parallax;
-* autoplay video;
-* carousels;
-* counters;
-* animated statistics;
-* dramatic entrance animations.
+- scroll-jacking;
+- parallax;
+- autoplay video;
+- carousels;
+- counters;
+- animated statistics;
+- dramatic entrance animations.
 
 Honor `prefers-reduced-motion`.
 
@@ -908,17 +906,17 @@ Honor `prefers-reduced-motion`.
 
 At mobile sizes:
 
-* background image remains full Hero media;
-* text must remain readable;
-* copy should not sit over the most visually complex part;
-* CTAs may stack;
-* no fixed desktop crop assumptions.
+- background image remains full Hero media;
+- text must remain readable;
+- copy should not sit over the most visually complex part;
+- CTAs may stack;
+- no fixed desktop crop assumptions.
 
 If the temporary image does not crop well on mobile, use:
 
-* `object-position`;
-* responsive `<source>`;
-* or a later mobile crop.
+- `object-position`;
+- responsive `<source>`;
+- or a later mobile crop.
 
 Do not generate a separate final mobile image yet.
 
@@ -932,9 +930,9 @@ choose the grid based on content, not a fixed arbitrary five-column structure.
 
 At tablet/mobile:
 
-* cards should collapse naturally;
-* no tiny three-column mobile products;
-* content height should not be artificially equalized if it harms readability.
+- cards should collapse naturally;
+- no tiny three-column mobile products;
+- content height should not be artificially equalized if it harms readability.
 
 Prefer:
 
@@ -968,15 +966,15 @@ Avoid long introductory text before products.
 
 Requirements:
 
-* one H1;
-* logical H2/H3 structure;
-* buttons/links with clear text;
-* visible focus;
-* sufficient Hero text contrast;
-* no text embedded inside raster images;
-* decorative Hero image uses appropriate empty alt;
-* semantic ordered list for process if appropriate;
-* product links remain keyboard accessible.
+- one H1;
+- logical H2/H3 structure;
+- buttons/links with clear text;
+- visible focus;
+- sufficient Hero text contrast;
+- no text embedded inside raster images;
+- decorative Hero image uses appropriate empty alt;
+- semantic ordered list for process if appropriate;
+- product links remain keyboard accessible.
 
 ---
 
@@ -988,13 +986,13 @@ TASK-003 should prepare for a lighter final asset system.
 
 Requirements:
 
-* do not add new heavy PNGs;
-* use WebP/AVIF when future images are finalized;
-* set intrinsic width/height;
-* lazy-load below-the-fold images;
-* do not lazy-load the Hero image;
-* consider Hero preload only if justified;
-* avoid layout shift.
+- do not add new heavy PNGs;
+- use WebP/AVIF when future images are finalized;
+- set intrinsic width/height;
+- lazy-load below-the-fold images;
+- do not lazy-load the Hero image;
+- consider Hero preload only if justified;
+- avoid layout shift.
 
 Temporary legacy images do not need to be permanently optimized if they will shortly be replaced, but do not make performance worse.
 
@@ -1013,9 +1011,9 @@ The Hero implementation must support later:
 
 with:
 
-* responsive desktop/mobile versions;
-* WebP/AVIF;
-* controlled object position.
+- responsive desktop/mobile versions;
+- WebP/AVIF;
+- controlled object position.
 
 Do not hard-wire the entire Hero to one CSS `background-image` URL that becomes awkward to replace.
 
@@ -1025,17 +1023,17 @@ Do not hard-wire the entire Hero to one CSS `background-image` URL that becomes 
 
 TASK-003 may update Homepage-specific:
 
-* `<title>`
-* meta description
-* H1 hierarchy
-* image alt behavior
+- `<title>`
+- meta description
+- H1 hierarchy
+- image alt behavior
 
 Do not implement:
 
-* final canonical production URL;
-* production sitemap;
-* final structured data;
-* x-default
+- final canonical production URL;
+- production sitemap;
+- final structured data;
+- x-default
 
 until the SEO task / production domain.
 
@@ -1059,11 +1057,11 @@ Final wording should remain concise.
 
 Describe:
 
-* feed raw materials;
-* finished feed;
-* traders / factories / farms;
-* Egypt;
-* supply.
+- feed raw materials;
+- finished feed;
+- traders / factories / farms;
+- Egypt;
+- supply.
 
 Do not claim unavailable products or unsupported capabilities.
 
@@ -1075,11 +1073,11 @@ During TASK-003 remove homepage-specific CSS that becomes obsolete.
 
 Examples may include old:
 
-* `.hero-media`
-* `.choice-grid`
-* arbitrary proof-number treatments
-* old map artwork
-* fixed five-column product preview
+- `.hero-media`
+- `.choice-grid`
+- arbitrary proof-number treatments
+- old map artwork
+- fixed five-column product preview
 
 only when they are no longer used by another current page.
 
@@ -1119,9 +1117,9 @@ Existing product rendering may continue using JavaScript.
 
 Avoid JavaScript for:
 
-* layout;
-* responsive section ordering;
-* simple presentational effects.
+- layout;
+- responsive section ordering;
+- simple presentational effects.
 
 ---
 
@@ -1131,8 +1129,8 @@ Review `products.js` during TASK-003.
 
 Ensure Homepage rendering can distinguish:
 
-* featured preview context;
-* full products-page catalogue context.
+- featured preview context;
+- full products-page catalogue context.
 
 Do not make `[data-products-grid]` blindly render identical content everywhere if Homepage and Products page require different presentation.
 
@@ -1162,11 +1160,11 @@ While implementing TASK-003, create a list of every section where final imagery 
 
 For each record:
 
-* section;
-* purpose;
-* current temporary asset;
-* future image requirement;
-* recommended aspect ratio.
+- section;
+- purpose;
+- current temporary asset;
+- future image requirement;
+- recommended aspect ratio.
 
 Do not generate these images.
 
@@ -1180,19 +1178,19 @@ At the end of TASK-003 we will decide which images deserve separate generation c
 
 Review:
 
-* current Arabic Homepage DOM;
-* current Homepage CSS;
-* product preview behavior;
-* image usage;
-* current content;
-* approved TASK-001 Homepage content.
+- current Arabic Homepage DOM;
+- current Homepage CSS;
+- product preview behavior;
+- image usage;
+- current content;
+- approved TASK-001 Homepage content.
 
 Classify current Homepage blocks:
 
-* KEEP
-* REWORK
-* REMOVE
-* ADD
+- KEEP
+- REWORK
+- REMOVE
+- ADD
 
 ---
 
@@ -1200,15 +1198,15 @@ Classify current Homepage blocks:
 
 Use OpenDesign to explore Homepage composition based on:
 
-* approved Operational Green system;
-* approved Arabic content;
-* new full-background Hero requirement.
+- approved Operational Green system;
+- approved Arabic content;
+- new full-background Hero requirement.
 
 Document:
 
-* adopted ideas;
-* rejected ideas;
-* content/business assumptions ignored.
+- adopted ideas;
+- rejected ideas;
+- content/business assumptions ignored.
 
 Do not implement before recording the result.
 
@@ -1218,13 +1216,13 @@ Do not implement before recording the result.
 
 Implement:
 
-* full-background image architecture;
-* temporary existing image;
-* green overlay;
-* approved copy;
-* primary/secondary CTA;
-* responsive crop behavior;
-* accessible text contrast.
+- full-background image architecture;
+- temporary existing image;
+- green overlay;
+- approved copy;
+- primary/secondary CTA;
+- responsive crop behavior;
+- accessible text contrast.
 
 No final generated image yet.
 
@@ -1234,10 +1232,10 @@ No final generated image yet.
 
 Implement:
 
-* factual proof;
-* product preview;
-* soybean-hull family presentation;
-* product CTA behavior.
+- factual proof;
+- product preview;
+- soybean-hull family presentation;
+- product CTA behavior.
 
 Remove arbitrary decorative numbering.
 
@@ -1247,9 +1245,9 @@ Remove arbitrary decorative numbering.
 
 Implement:
 
-* raw-material category;
-* finished-feed category;
-* Why Al Nesour section.
+- raw-material category;
+- finished-feed category;
+- Why Al Nesour section.
 
 Keep commercial copy concise.
 
@@ -1259,10 +1257,10 @@ Keep commercial copy concise.
 
 Implement:
 
-* traders;
-* feed factories;
-* large farms;
-* nationwide delivery/supply section.
+- traders;
+- feed factories;
+- large farms;
+- nationwide delivery/supply section.
 
 Do not introduce unsupported logistics claims.
 
@@ -1272,8 +1270,8 @@ Do not introduce unsupported logistics claims.
 
 Implement:
 
-* four-step process;
-* final WhatsApp conversion section.
+- four-step process;
+- final WhatsApp conversion section.
 
 ---
 
@@ -1283,10 +1281,10 @@ Remove superseded Homepage code safely.
 
 Review:
 
-* unused CSS;
-* obsolete markup;
-* duplicated classes;
-* old decorative elements.
+- unused CSS;
+- obsolete markup;
+- duplicated classes;
+- old decorative elements.
 
 Do not break English or inner pages.
 
@@ -1296,20 +1294,20 @@ Do not break English or inner pages.
 
 Validate:
 
-* 1440×900
-* 1024×768
-* 768×1024
-* 390×844
+- 1440×900
+- 1024×768
+- 768×1024
+- 390×844
 
 Inspect:
 
-* Hero readability;
-* image crop;
-* product layout;
-* section rhythm;
-* CTA visibility;
-* Arabic typography;
-* no horizontal overflow.
+- Hero readability;
+- image crop;
+- product layout;
+- section rhythm;
+- CTA visibility;
+- Arabic typography;
+- no horizontal overflow.
 
 ---
 
@@ -1317,11 +1315,11 @@ Inspect:
 
 Prepare:
 
-* screenshots of the implemented Homepage at required sizes;
-* summary of changes;
-* temporary-image list;
-* remaining image-generation requirements;
-* known deferred tasks.
+- screenshots of the implemented Homepage at required sizes;
+- summary of changes;
+- temporary-image list;
+- remaining image-generation requirements;
+- known deferred tasks.
 
 Stop before considering TASK-003 complete until owner reviews the result.
 
@@ -1331,21 +1329,21 @@ Stop before considering TASK-003 complete until owner reviews the result.
 
 Extend the maintained smoke tests to verify at least:
 
-* Arabic Homepage loads;
-* exactly one H1;
-* Hero exists;
-* Hero contains image/media layer;
-* Hero overlay exists;
-* Hero primary CTA exists;
-* Products preview contains only enabled/featured content;
-* disabled products never render;
-* process contains four ordered steps;
-* final CTA exists;
-* no horizontal overflow at all required viewports;
-* no JavaScript page errors;
-* global Header/Footer remain functional;
-* mobile navigation still works;
-* Contact flow regression remains passing.
+- Arabic Homepage loads;
+- exactly one H1;
+- Hero exists;
+- Hero contains image/media layer;
+- Hero overlay exists;
+- Hero primary CTA exists;
+- Products preview contains only enabled/featured content;
+- disabled products never render;
+- process contains four ordered steps;
+- final CTA exists;
+- no horizontal overflow at all required viewports;
+- no JavaScript page errors;
+- global Header/Footer remain functional;
+- mobile navigation still works;
+- Contact flow regression remains passing.
 
 Tests must not assert fragile visual details such as exact pixel positions.
 
@@ -1373,40 +1371,40 @@ before completion.
 
 TASK-003 is complete only when:
 
-* [ ] TASK-002 documentation status is reconciled from Planned to Complete.
-* [ ] Homepage current implementation has been audited.
-* [ ] OpenDesign Homepage exploration has been completed and documented.
-* [ ] Arabic Homepage information architecture matches the approved content direction.
-* [ ] Split Hero layout has been removed.
-* [ ] Hero uses full-background image architecture.
-* [ ] Hero uses a restrained green overlay.
-* [ ] Hero copy is readable at all required viewports.
-* [ ] Current Hero image is clearly documented as temporary.
-* [ ] No new final Hero image has been generated.
-* [ ] Primary Hero CTA is `اطلب سعر اليوم`.
-* [ ] Secondary Hero CTA is `تصفح المنتجات`.
-* [ ] Proof section contains only confirmed facts.
-* [ ] Arbitrary `01 / 02 / 03` trust numbering has been removed.
-* [ ] Product preview uses centralized product data.
-* [ ] Disabled/unconfirmed products cannot render.
-* [ ] Soybean-hull variants are presented coherently.
-* [ ] Product categories are clear.
-* [ ] Why Al Nesour section uses specific commercial benefits.
-* [ ] Audience section covers traders, factories, and large farms.
-* [ ] Delivery section communicates all-governorate coordination accurately.
-* [ ] Supply process contains four clear steps.
-* [ ] Final WhatsApp CTA is implemented.
-* [ ] Homepage no longer feels like a numbered editorial corporate showcase.
-* [ ] Homepage-specific obsolete CSS is cleaned where safe.
-* [ ] Inner pages remain unaffected.
-* [ ] English Homepage remains functional and responsive.
-* [ ] Header/Footer from TASK-002 remain unchanged except necessary regression-safe integration.
-* [ ] Required viewport tests pass.
-* [ ] Accessibility checks pass.
-* [ ] Formatting passes.
-* [ ] Smoke/regression tests pass.
-* [ ] Final imagery requirements are documented but not generated.
-* [ ] Owner reviews Homepage screenshots before TASK-003 closes.
+- [ ] TASK-002 documentation status is reconciled from Planned to Complete.
+- [ ] Homepage current implementation has been audited.
+- [ ] OpenDesign Homepage exploration has been completed and documented.
+- [ ] Arabic Homepage information architecture matches the approved content direction.
+- [ ] Split Hero layout has been removed.
+- [ ] Hero uses full-background image architecture.
+- [ ] Hero uses a restrained green overlay.
+- [ ] Hero copy is readable at all required viewports.
+- [ ] Current Hero image is clearly documented as temporary.
+- [ ] No new final Hero image has been generated.
+- [ ] Primary Hero CTA is `اطلب سعر اليوم`.
+- [ ] Secondary Hero CTA is `تصفح المنتجات`.
+- [ ] Proof section contains only confirmed facts.
+- [ ] Arbitrary `01 / 02 / 03` trust numbering has been removed.
+- [ ] Product preview uses centralized product data.
+- [ ] Disabled/unconfirmed products cannot render.
+- [ ] Soybean-hull variants are presented coherently.
+- [ ] Product categories are clear.
+- [ ] Why Al Nesour section uses specific commercial benefits.
+- [ ] Audience section covers traders, factories, and large farms.
+- [ ] Delivery section communicates all-governorate coordination accurately.
+- [ ] Supply process contains four clear steps.
+- [ ] Final WhatsApp CTA is implemented.
+- [ ] Homepage no longer feels like a numbered editorial corporate showcase.
+- [ ] Homepage-specific obsolete CSS is cleaned where safe.
+- [ ] Inner pages remain unaffected.
+- [ ] English Homepage remains functional and responsive.
+- [ ] Header/Footer from TASK-002 remain unchanged except necessary regression-safe integration.
+- [ ] Required viewport tests pass.
+- [ ] Accessibility checks pass.
+- [ ] Formatting passes.
+- [ ] Smoke/regression tests pass.
+- [ ] Final imagery requirements are documented but not generated.
+- [ ] Owner reviews Homepage screenshots before TASK-003 closes.
 
 ---
 
@@ -1414,18 +1412,18 @@ TASK-003 is complete only when:
 
 Do not complete during TASK-003:
 
-* final Hero image generation;
-* final product image generation;
-* final logo;
-* feed-bag design;
-* Products page redesign;
-* Services page redesign;
-* About page redesign;
-* Contact flow redesign;
-* full English version rewrite;
-* final production SEO;
-* final domain setup;
-* full site QA.
+- final Hero image generation;
+- final product image generation;
+- final logo;
+- feed-bag design;
+- Products page redesign;
+- Services page redesign;
+- About page redesign;
+- Contact flow redesign;
+- full English version rewrite;
+- final production SEO;
+- final domain setup;
+- full site QA.
 
 ---
 
@@ -1437,15 +1435,15 @@ After TASK-003 approval:
 
 TASK-004 will formally stabilize:
 
-* product model;
-* categories;
-* variants;
-* `enabled`;
-* `featured`;
-* availability;
-* images;
-* localized names/descriptions;
-* Homepage vs catalogue rendering context.
+- product model;
+- categories;
+- variants;
+- `enabled`;
+- `featured`;
+- availability;
+- images;
+- localized names/descriptions;
+- Homepage vs catalogue rendering context.
 
 Some foundations already exist from TASK-001, but TASK-004 will make the architecture deliberate and final before the full Products page redesign.
 

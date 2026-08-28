@@ -33,20 +33,20 @@ The current families are `soybean-hulls` and `finished-feed`. The latter is a fa
 
 Each product record contains:
 
-| Field | Meaning |
-| --- | --- |
-| `id` | Stable machine ID. |
-| `categoryId` | Required reference to a category. |
-| `familyId` | Optional reference to a family. |
-| `variant` | Optional `{ id, name: { ar, en } }`; soybean-hull variants use this. |
-| `enabled` | Explicit public-catalogue approval. Only `true` can render. It is not a stock flag. |
-| `featured` | Indicates the item is suitable for highlighted presentation; it does not guarantee stock or render it by itself. |
-| `placement.homepage` | Explicit standalone homepage placement. Families use the same field for grouped placement. |
-| `sortOrder` | Numeric, spaced ordering value. |
-| `availability` | Controlled availability state. |
-| `name`, `description` | Required localized public text for enabled products. |
-| `image` | `{ src?, status }`; public rendering uses `src` only when present. |
-| `internal` | Never rendered. Holds confirmation and asset-review metadata. |
+| Field                 | Meaning                                                                                                          |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `id`                  | Stable machine ID.                                                                                               |
+| `categoryId`          | Required reference to a category.                                                                                |
+| `familyId`            | Optional reference to a family.                                                                                  |
+| `variant`             | Optional `{ id, name: { ar, en } }`; soybean-hull variants use this.                                             |
+| `enabled`             | Explicit public-catalogue approval. Only `true` can render. It is not a stock flag.                              |
+| `featured`            | Indicates the item is suitable for highlighted presentation; it does not guarantee stock or render it by itself. |
+| `placement.homepage`  | Explicit standalone homepage placement. Families use the same field for grouped placement.                       |
+| `sortOrder`           | Numeric, spaced ordering value.                                                                                  |
+| `availability`        | Controlled availability state.                                                                                   |
+| `name`, `description` | Required localized public text for enabled products.                                                             |
+| `image`               | `{ src?, status }`; public rendering uses `src` only when present.                                               |
+| `internal`            | Never rendered. Holds confirmation and asset-review metadata.                                                    |
 
 ## Controlled states
 
