@@ -125,9 +125,9 @@ try {
         ...document.querySelectorAll('[data-products-grid] [data-product-ids]'),
       ].flatMap((card) => card.dataset.productIds.split(','));
       const renderedProductIds = [...productIds, ...familyProductIds];
-      const enabledIds = window.ALNESOUR_PRODUCTS.filter((product) => product.enabled === true).map(
-        (product) => product.id
-      );
+      const enabledIds = window.ALNESOUR_CATALOG.products
+        .filter((product) => product.enabled === true)
+        .map((product) => product.id);
       return {
         hero: Boolean(document.querySelector('.home-hero')),
         heroMedia: Boolean(document.querySelector('.home-hero-media picture img')),

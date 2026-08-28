@@ -1,91 +1,145 @@
 (() => {
-  const grid = document.querySelector('[data-products-grid]');
-  if (!grid || !window.ALNESOUR_PRODUCTS) return;
+  const catalogue = window.ALNESOUR_CATALOG;
+  if (!catalogue) return;
 
-  const isArabic = document.documentElement.lang === 'ar';
-  const basePath = isArabic ? '' : '../';
-  const labels = isArabic
-    ? {
-        raw: 'خامات أعلاف',
-        finished: 'أعلاف جاهزة',
-        cta: 'اطلب سعر اليوم',
-        availability: 'اسأل عن السعر والتوفر',
-        soybeanFamily: 'قشر الصويا',
-        soybeanCopy: 'ناعم ووسط وخشن وفق احتياجات الطلب والتوافر للكميات التجارية.',
-        finishedFamily: 'الأعلاف الجاهزة',
-        finishedCopy: 'أعلاف مُصنّعة للمواشي والبط والغنم حسب نطاق المنتج والتوافر.',
-      }
-    : {
-        raw: 'Feed Raw Materials',
-        finished: 'Finished Feed',
-        cta: "Ask for Today's Price",
-        availability: 'Ask about price and availability',
-        soybeanFamily: 'Soybean Hulls',
-        soybeanCopy: 'Fine, medium, and coarse variants supplied for commercial requests.',
-        finishedFamily: 'Finished Feed',
-        finishedCopy: 'Manufactured cattle, duck, and sheep feed according to availability.',
-      };
-  const enabledProducts = window.ALNESOUR_PRODUCTS.filter((product) => product.enabled === true);
-  const quoteUrl = (productNames) => {
-    const message = isArabic
-      ? `السلام عليكم، أريد الاستفسار عن سعر وتوفر ${productNames}.\nالكمية المطلوبة: \nمكان التسليم: `
-      : `Hello, I would like to ask about the current price and availability of ${productNames}.\nRequested quantity: \nDelivery location: `;
+  const locale = document.documentElement.lang === 'ar' ? 'ar' : 'en';
+  const assetBase = locale === 'ar' ? '' : '../';
+  const ui = {
+    ar: { requestPrice: 'اطلب سعر اليوم' },
+    en: { requestPrice: "Ask for Today's Price" },
+  }[locale];
+  const localized = (value) => value?.[locale] || '';
+  const isPublicProduct = (product) =>
+    product?.enabled === true &&
+    Boolean(catalogue.categories[product.categoryId]) &&
+    Boolean(catalogue.availability[product.availability]) &&
+    Boolean(localized(product.name)) &&
+    Boolean(localized(product.description));
+  const hasImage = (image) => image?.status !== 'missing' && Boolean(image?.src);
+  const publicProducts = catalogue.products
+    .filter(isPublicProduct)
+    .sort(
+      (first, second) =>
+        catalogue.categories[first.categoryId].sortOrder -
+          catalogue.categories[second.categoryId].sortOrder ||
+        first.sortOrder - second.sortOrder
+    );
+
+  const create = (tagName, className, text) => {
+    const element = document.createElement(tagName);
+    if (className) element.className = className;
+    if (text) element.textContent = text;
+    return element;
+  };
+
+  const quoteUrl = (productName) => {
+    const message =
+      locale === 'ar'
+        ? `السلام عليكم، أريد الاستفسار عن سعر وتوفر ${productName}.\nالكمية المطلوبة: \nمكان التسليم: `
+        : `Hello, I would like to ask about the current price and availability of ${productName}.\nRequested quantity: \nDelivery location: `;
     return `https://wa.me/201022232052?text=${encodeURIComponent(message)}`;
   };
-  const image = (product, alt) =>
-    `<div class="product-image"><img loading="lazy" src="${basePath + product.image}" alt="${alt}" width="800" height="600"></div>`;
-  const productCard = (product, showImage = true) => `<article class="product-card${showImage ? '' : ' product-card-text-only'}" data-category="${product.category}" data-product-id="${product.id}">
-    ${showImage ? image(product, isArabic ? product.name.ar : product.name.en) : ''}
-    <div class="product-content"><span class="product-category">${labels[product.category]}</span><h3>${isArabic ? product.name.ar : product.name.en}</h3><p>${isArabic ? product.description.ar : product.description.en}</p><a class="text-link" href="${quoteUrl(isArabic ? product.name.ar : product.name.en)}" target="_blank" rel="noopener">${labels.cta}</a></div>
-  </article>`;
-  const familyCard = ({ title, description, products, category }) => {
-    const variants = products.map((product) => (isArabic ? product.name.ar : product.name.en)).join('، ');
-    const featuredProduct = products[0];
-    return `<article class="product-card product-family-card" data-category="${category}" data-product-ids="${products.map((product) => product.id).join(',')}">
-      ${image(featuredProduct, '')}
-      <div class="product-content"><span class="product-category">${labels[category]}</span><h3>${title}</h3><p>${description}</p><p class="product-variants">${variants}</p><a class="text-link" href="${quoteUrl(title)}" target="_blank" rel="noopener">${labels.availability}</a></div>
-    </article>`;
-  };
-  const renderHomepage = () => {
-    const soybeanHulls = enabledProducts.filter(
-      (product) => product.featured === true && product.productFamily === 'soybean-hulls'
-    );
-    const featuredRawProducts = enabledProducts.filter(
-      (product) => product.featured === true && product.productFamily !== 'soybean-hulls'
-    );
-    const finishedFeed = enabledProducts.filter((product) => product.category === 'finished');
-    const cards = [];
 
-    if (soybeanHulls.length) {
-      cards.push(
-        familyCard({
-          title: labels.soybeanFamily,
-          description: labels.soybeanCopy,
-          products: soybeanHulls,
-          category: 'raw',
-        })
-      );
-    }
-    featuredRawProducts.forEach((product) =>
-      cards.push(productCard(product, product.id !== 'fava-bean-hulls'))
-    );
-    if (finishedFeed.length) {
-      cards.push(
-        familyCard({
-          title: labels.finishedFamily,
-          description: labels.finishedCopy,
-          products: finishedFeed,
-          category: 'finished',
-        })
-      );
-    }
-    grid.innerHTML = cards.join('');
+  const imageElement = (image, alt) => {
+    if (!hasImage(image)) return null;
+    const wrapper = create('div', 'product-image');
+    const element = document.createElement('img');
+    element.loading = 'lazy';
+    element.src = `${assetBase}${image.src}`;
+    element.alt = alt;
+    element.width = 800;
+    element.height = 600;
+    wrapper.append(element);
+    return wrapper;
   };
-  const renderCatalogue = () => {
-    grid.innerHTML = enabledProducts.map(productCard).join('');
-    document.querySelectorAll('[data-filter]').forEach((button) =>
+
+  const actionLink = (label, productName) => {
+    const link = create('a', 'text-link', label);
+    link.href = quoteUrl(productName);
+    link.target = '_blank';
+    link.rel = 'noopener';
+    return link;
+  };
+
+  const productCard = (product) => {
+    const card = create('article', 'product-card');
+    card.dataset.category = product.categoryId;
+    card.dataset.productId = product.id;
+    const productImage = imageElement(product.image, localized(product.name));
+    if (productImage) card.append(productImage);
+    else card.classList.add('product-card-text-only');
+
+    const content = create('div', 'product-content');
+    content.append(
+      create('span', 'product-category', localized(catalogue.categories[product.categoryId].name)),
+      create('h3', '', localized(product.name)),
+      create('p', '', localized(product.description)),
+      actionLink(ui.requestPrice, localized(product.name))
+    );
+    card.append(content);
+    return card;
+  };
+
+  const familyCard = (family, products) => {
+    const card = create('article', 'product-card product-family-card');
+    card.dataset.category = family.categoryId;
+    card.dataset.familyId = family.id;
+    card.dataset.productIds = products.map((product) => product.id).join(',');
+    const familyImage = imageElement(family.image, '');
+    if (familyImage) card.append(familyImage);
+    else card.classList.add('product-card-text-only');
+
+    const content = create('div', 'product-content');
+    const variants = products.map((product) => localized(product.name)).join(locale === 'ar' ? '، ' : ', ');
+    const availability = localized(catalogue.availability[products[0].availability]?.name);
+    content.append(
+      create('span', 'product-category', localized(catalogue.categories[family.categoryId].name)),
+      create('h3', '', localized(family.name)),
+      create('p', '', localized(family.description)),
+      create('p', 'product-variants', variants),
+      actionLink(availability, localized(family.name))
+    );
+    card.append(content);
+    return card;
+  };
+
+  const publicFamilyCards = () =>
+    Object.values(catalogue.families)
+      .filter(
+        (family) =>
+          family.enabled === true &&
+          family.placement?.homepage === true &&
+          catalogue.categories[family.categoryId] &&
+          localized(family.name) &&
+          localized(family.description)
+      )
+      .map((family) => ({
+        family,
+        products: publicProducts.filter((product) => product.familyId === family.id),
+      }))
+      .filter(({ products }) => products.length)
+      .map(({ family, products }) => ({
+        sortOrder: family.sortOrder,
+        element: familyCard(family, products),
+      }));
+
+  const homepageCards = () => {
+    const familyCards = publicFamilyCards();
+    const standaloneCards = publicProducts
+      .filter((product) => !product.familyId && product.placement?.homepage === true)
+      .map((product) => ({ sortOrder: product.sortOrder, element: productCard(product) }));
+    return [...familyCards, ...standaloneCards].sort((first, second) => first.sortOrder - second.sortOrder);
+  };
+
+  const renderHomepage = (grid) =>
+    grid.replaceChildren(...homepageCards().map(({ element }) => element));
+
+  const renderCatalogue = (grid) => {
+    grid.replaceChildren(...publicProducts.map(productCard));
+    const filterScope = grid.closest('.product-page') || grid.parentElement;
+    filterScope?.querySelectorAll('[data-filter]').forEach((button) => {
       button.addEventListener('click', () => {
-        document
+        filterScope
           .querySelectorAll('[data-filter]')
           .forEach((item) => item.setAttribute('aria-pressed', 'false'));
         button.setAttribute('aria-pressed', 'true');
@@ -93,10 +147,12 @@
         grid.querySelectorAll('.product-card').forEach((card) => {
           card.hidden = filter !== 'all' && card.dataset.category !== filter;
         });
-      })
-    );
+      });
+    });
   };
 
-  if (grid.dataset.productsContext === 'homepage') renderHomepage();
-  else renderCatalogue();
+  document.querySelectorAll('[data-products-grid]').forEach((grid) => {
+    if (grid.dataset.productsContext === 'homepage') renderHomepage(grid);
+    else renderCatalogue(grid);
+  });
 })();

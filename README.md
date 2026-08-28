@@ -21,7 +21,7 @@ Then visit `http://127.0.0.1:4173/`.
 
 ## Maintenance entry points
 
-- Product content is centralized in `assets/js/products-data.js`. The confirmed catalogue and variant-ready structure will be implemented in the dedicated product-data task; do not add unconfirmed products as public stock.
+- Product content is centralized in `assets/js/products-data.js`. Its confirmed catalogue, family, and variant model is documented in `tasks/TASK-004-product-data-architecture/`; do not add unconfirmed products as public stock.
 - Global behavior is in `assets/js/main.js`; product rendering in `assets/js/products.js`; WhatsApp quote construction in `assets/js/quote.js`.
 - The WhatsApp destination is `201022232052`.
 - Shared tokens and styling are in `assets/css/`.
@@ -33,6 +33,7 @@ Run the maintained formatting and smoke checks from the repository root:
 
 ```powershell
 npx prettier --check "**/*.{html,css,js,md,json}"
+node tests/catalogue-check.mjs
 node tests/redesign-check.mjs
 ```
 
