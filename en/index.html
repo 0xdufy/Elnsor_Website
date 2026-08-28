@@ -59,49 +59,64 @@
       </nav>
     </header>
     <main id="main" tabindex="-1">
-      <section class="hero">
-        <div class="container">
-          <div class="hero-copy">
-            <div class="eyebrow">B2B supply for Egypt</div>
-            <h1>Feed materials and finished feed in commercial quantities</h1>
-            <p>
-              We serve traders, feed factories, and large farms with raw materials, finished feed,
-              direct factory supply, and delivery coordination across all Egyptian governorates.
-            </p>
-            <div class="button-row">
-              <a class="btn btn-primary" href="contact.html">Request Today's Price</a
-              ><a class="btn btn-outline" href="products.html">Browse Products</a>
-            </div>
-          </div>
-          <figure class="hero-media">
+      <section class="home-hero" aria-labelledby="home-hero-title">
+        <div class="home-hero-media" aria-hidden="true">
+          <picture>
             <img
-              src="../assets/images/hero/warehouse-supply-documentary.png"
+              src="../assets/images/hero/Hero.png"
               width="1672"
-              height="943"
-              alt="Feed materials handling in an industrial warehouse"
+              height="941"
+              alt=""
+              fetchpriority="high"
             />
-            <figcaption class="hero-caption">
-              <i></i>Factory-direct supply · Commercial quantities · Logistics
-            </figcaption>
-          </figure>
+          </picture>
+        </div>
+        <div class="home-hero-overlay" aria-hidden="true"></div>
+        <div class="container home-hero-content">
+          <div class="eyebrow">Al Nesour Feeds</div>
+          <h1 id="home-hero-title">Reliable Feed &amp; Raw Materials for Your Business and Farm</h1>
+          <p>
+            We supply quality feed raw materials and ready-made animal feed, with direct sourcing and
+            more than 20 years of experience serving traders and farmers.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="products.html">Explore Products</a
+            ><a class="btn btn-outline" href="contact.html">Request Today's Price</a>
+          </div>
         </div>
       </section>
-      <section class="proof-strip">
-        <div class="container proof-grid">
-          <div class="proof-item">
-            <b class="proof-number">20</b
-            ><span class="proof-text">Years of feed-market experience</span>
+      <section class="home-proof" aria-label="Al Nesour supply credentials">
+        <div class="container home-proof-grid">
+          <div class="home-proof-item">
+            <svg class="home-proof-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M12 7v5l3 2"></path>
+            </svg>
+            <div>
+              <strong class="home-proof-main"><span class="home-proof-accent">20+</span> Years</strong>
+              <span class="home-proof-support">Experience in the feed market</span>
+            </div>
           </div>
-          <div class="proof-item">
-            <b class="proof-number">EG</b
-            ><span class="proof-text">Supply across all governorates</span>
+          <div class="home-proof-item">
+            <svg class="home-proof-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 21h18"></path>
+              <path d="M5 21V10l7-4 7 4v11"></path>
+              <path d="M9 21v-5h6v5M9 12h.01M12 12h.01M15 12h.01"></path>
+            </svg>
+            <div>
+              <strong class="home-proof-main">Direct from the Source</strong>
+              <span class="home-proof-support">Reliable and organized supply</span>
+            </div>
           </div>
-          <div class="proof-item">
-            <b class="proof-number">01</b><span class="proof-text">Factory-direct supply</span>
-          </div>
-          <div class="proof-item">
-            <b class="proof-number">B2B</b
-            ><span class="proof-text">Raw materials & finished feed</span>
+          <div class="home-proof-item">
+            <svg class="home-proof-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s7-5.1 7-11a7 7 0 0 0-14 0c0 5.9 7 11 7 11Z"></path>
+              <circle cx="12" cy="10" r="2.25"></circle>
+            </svg>
+            <div>
+              <strong class="home-proof-main">All Egypt Governorates</strong>
+              <span class="home-proof-support">Supply and delivery coordination</span>
+            </div>
           </div>
         </div>
       </section>
