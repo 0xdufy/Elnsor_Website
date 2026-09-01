@@ -1,46 +1,26 @@
 # Al Nesour Feeds Website
 
-Arabic-first bilingual B2B corporate website for Al Nesour Feeds, built with semantic HTML5, CSS3, and vanilla JavaScript.
+Arabic-first bilingual B2B single-page website for Al Nesour Feeds, built with semantic HTML5, CSS3, and minimal vanilla JavaScript.
 
 ## Run locally
-
-Start a static server from the repository root, for example:
 
 ```powershell
 python -m http.server 4173
 ```
 
-Then visit `http://127.0.0.1:4173/`.
+Open [Arabic](http://127.0.0.1:4173/index.html) or [English](http://127.0.0.1:4173/en/index.html).
 
-## Documentation
+## Maintenance
 
-- [`AGENTS.md`](AGENTS.md) is the durable source of truth for implementation, publication rules, confirmed business facts, and technical guardrails.
-- [`DESIGN.md`](DESIGN.md) will become the approved design-system reference after the visual-direction review.
-- [`IMAGE_SOURCES.md`](IMAGE_SOURCES.md) records asset provenance only.
-- [`tasks/`](tasks/) contains scoped task briefs, audits, decisions, and review records.
+- `index.html` and `en/index.html` contain the two localized single-page versions.
+- `assets/css/tokens.css` defines design tokens; `assets/css/styles.css` contains the shared styles.
+- `assets/js/main.js` handles the mobile menu, scrolled header, and localized product WhatsApp links.
+- `IMAGE_SOURCES.md` records the remaining local image assets.
 
-## Maintenance entry points
-
-- Product content is centralized in `assets/js/products-data.js`. Its confirmed catalogue, family, and variant model is documented in `tasks/TASK-004-product-data-architecture/`; do not add unconfirmed products as public stock.
-- Global behavior is in `assets/js/main.js`; product rendering in `assets/js/products.js`; WhatsApp quote construction in `assets/js/quote.js`.
-- The WhatsApp destination is `201022232052`.
-- Shared tokens and styling are in `assets/css/`.
-- A future approved logo can replace the header/footer wordmark without changing the layout contract.
-
-## Verify
-
-Run the maintained formatting and smoke checks from the repository root:
+Format maintained files with:
 
 ```powershell
-npx prettier --check "**/*.{html,css,js,md,json}"
-node tests/catalogue-check.mjs
-node tests/redesign-check.mjs
+npx prettier --write "**/*.{html,css,js,md,json}"
 ```
 
-The smoke test starts and stops its own temporary local static server. It checks each Arabic and English page at the required desktop, tablet, and mobile viewport sizes, then verifies both localized WhatsApp quote flows.
-
-## Before production launch
-
-Confirm the final logo, English commercial name for `زيت منزوع`, soybean-hull variant presentation, written address, production domain, any public client/supplier permissions, and any documented certifications, capacities, or specifications.
-
-GitHub Pages remains a testing/preview environment. Do not configure final canonical, `x-default`, or sitemap URLs until the production domain is known.
+Before production, confirm the final logo, the exact English commercial name for `زيت منزوع`, any public address, and the production domain.
