@@ -5,10 +5,15 @@
   const locale = document.documentElement.lang === 'ar' ? 'ar' : 'en';
   const assetBase = locale === 'ar' ? '' : '../';
   const ui = {
-    ar: { requestPrice: 'اسأل عن السعر والتوفر', availability: 'اسأل عن السعر والتوفر' },
+    ar: {
+      requestPrice: 'اسأل عن السعر والتوفر',
+      availability: 'اسأل عن السعر والتوفر',
+      homeProductCta: 'اسأل عن السعر والتوفر ←',
+    },
     en: {
       requestPrice: 'Ask about price and availability',
       availability: 'Ask about price and availability',
+      homeProductCta: 'Ask about price & availability →',
     },
   }[locale];
   const localized = (value) => value?.[locale] || '';
@@ -96,16 +101,17 @@
     else card.classList.add('product-card-text-only');
 
     const content = create('div', 'product-content');
-    const variants = products
-      .map((product) => localized(product.name))
-      .join(locale === 'ar' ? '، ' : ', ');
-    const availability = localized(catalogue.availability[products[0].availability]?.name);
+    const variants = create('div', 'product-variants');
+    products.forEach((product) => {
+      const variantName = localized(product.variant?.name) || localized(product.name);
+      variants.append(create('span', 'product-variant-chip', variantName));
+    });
     content.append(
       create('span', 'product-category', localized(catalogue.categories[family.categoryId].name)),
       create('h3', '', localized(family.name)),
       create('p', '', localized(family.description)),
-      create('p', 'product-variants', variants),
-      actionLink(availability, localized(family.name))
+      variants,
+      actionLink(ui.homeProductCta, localized(family.name))
     );
     card.append(content);
     return card;

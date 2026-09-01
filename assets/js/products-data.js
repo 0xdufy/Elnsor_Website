@@ -120,11 +120,11 @@
         sortOrder: 10,
         name: { ar: 'قشر الصويا', en: 'Soybean Hulls' },
         description: {
-          ar: 'ناعم ووسط وخشن وفق احتياجات الطلب والتوافر للكميات التجارية.',
-          en: 'Fine, medium, and coarse variants supplied for commercial requests.',
+          ar: 'خامة أعلاف بثلاث درجات حسب طلبك وتوفر الكمية.',
+          en: 'Three grades for commercial supply requests, subject to availability.',
         },
         image: {
-          src: 'assets/images/products/soybean-hulls.webp',
+          src: 'assets/images/products/soybean hulls.png',
           status: 'temporary',
         },
         internal: { imageStatus: 'temporary' },
@@ -138,11 +138,11 @@
         sortOrder: 40,
         name: { ar: 'الأعلاف الجاهزة', en: 'Finished Feed' },
         description: {
-          ar: 'أعلاف مُصنّعة للمواشي والبط والغنم حسب نطاق المنتج والتوافر.',
-          en: 'Manufactured cattle, duck, and sheep feed according to availability.',
+          ar: 'أعلاف مُصنّعة للمواشي والبط والأغنام حسب التوفر.',
+          en: 'Manufactured feed for cattle, ducks, and sheep, subject to availability.',
         },
         image: {
-          src: 'assets/images/products/finished-feed-documentary.png',
+          src: 'assets/images/products/animal feed sack.png',
           status: 'temporary',
         },
         internal: { imageStatus: 'temporary' },
@@ -166,7 +166,7 @@
           en: 'Supplied for commercial quantities according to request and availability.',
         },
         image: {
-          src: 'assets/images/products/soybean-hulls.webp',
+          src: 'assets/images/products/soybean hulls.png',
           status: 'temporary',
         },
         internal: { englishNameStatus: 'confirmed', imageStatus: 'temporary' },
@@ -187,7 +187,7 @@
           en: 'Supplied for commercial quantities according to request and availability.',
         },
         image: {
-          src: 'assets/images/products/soybean-hulls.webp',
+          src: 'assets/images/products/soybean hulls.png',
           status: 'temporary',
         },
         internal: { englishNameStatus: 'confirmed', imageStatus: 'temporary' },
@@ -208,7 +208,7 @@
           en: 'Supplied for commercial quantities according to request and availability.',
         },
         image: {
-          src: 'assets/images/products/soybean-hulls.webp',
+          src: 'assets/images/products/soybean hulls.png',
           status: 'temporary',
         },
         internal: { englishNameStatus: 'confirmed', imageStatus: 'temporary' },
@@ -223,11 +223,14 @@
         availability: 'on-request',
         name: { ar: 'قشر فول', en: 'Fava Bean Hulls' },
         description: {
-          ar: 'خامة أعلاف متاحة للطلبات التجارية حسب التوافر والكمية.',
-          en: 'A feed raw material supplied for commercial orders according to availability and quantity.',
+          ar: 'خامة أعلاف للطلبات التجارية حسب الكمية والتوفر.',
+          en: 'Feed raw material for commercial orders, subject to quantity and availability.',
         },
-        image: { status: 'missing' },
-        internal: { englishNameStatus: 'confirmed', imageStatus: 'missing' },
+        image: {
+          src: 'assets/images/products/fava bean.png',
+          status: 'temporary',
+        },
+        internal: { englishNameStatus: 'confirmed', imageStatus: 'temporary' },
       },
       {
         id: 'oil-product',
@@ -239,11 +242,11 @@
         availability: 'on-request',
         name: { ar: 'زيت منزوع', en: 'Feed-Related Oil Product' },
         description: {
-          ar: 'منتج زيتي مرتبط باستخدامات الأعلاف ويتم توريده حسب الطلب والتوافر.',
-          en: 'A feed-related oil product supplied according to request and availability.',
+          ar: 'منتج زيتي لاستخدامات الأعلاف، حسب الطلب والتوفر.',
+          en: 'A feed-related oil product supplied to order, subject to availability.',
         },
         image: {
-          src: 'assets/images/products/degummed-soybean-oil.webp',
+          src: 'assets/images/products/degummed-soybean-oil.png',
           status: 'temporary',
         },
         internal: { englishNameStatus: 'temporary', imageStatus: 'temporary' },
@@ -252,6 +255,7 @@
         id: 'cattle-feed',
         categoryId: 'finished',
         familyId: 'finished-feed',
+        variant: { id: 'cattle', name: { ar: 'مواشي', en: 'Cattle' } },
         enabled: true,
         featured: false,
         placement: { homepage: false },
@@ -263,7 +267,7 @@
           en: 'Manufactured cattle feed according to the available product range.',
         },
         image: {
-          src: 'assets/images/products/finished-feed-documentary.png',
+          src: 'assets/images/products/animal feed sack.png',
           status: 'temporary',
         },
         internal: { englishNameStatus: 'confirmed', imageStatus: 'temporary' },
@@ -272,6 +276,7 @@
         id: 'duck-feed',
         categoryId: 'finished',
         familyId: 'finished-feed',
+        variant: { id: 'ducks', name: { ar: 'بط', en: 'Ducks' } },
         enabled: true,
         featured: false,
         placement: { homepage: false },
@@ -283,7 +288,7 @@
           en: 'Manufactured duck feed according to the available product range.',
         },
         image: {
-          src: 'assets/images/products/finished-feed-documentary.png',
+          src: 'assets/images/products/animal feed sack.png',
           status: 'temporary',
         },
         internal: { englishNameStatus: 'confirmed', imageStatus: 'temporary' },
@@ -292,6 +297,7 @@
         id: 'sheep-feed',
         categoryId: 'finished',
         familyId: 'finished-feed',
+        variant: { id: 'sheep', name: { ar: 'أغنام', en: 'Sheep' } },
         enabled: true,
         featured: false,
         placement: { homepage: false },
@@ -303,7 +309,7 @@
           en: 'Manufactured sheep feed according to the available product range.',
         },
         image: {
-          src: 'assets/images/products/finished-feed-documentary.png',
+          src: 'assets/images/products/animal feed sack.png',
           status: 'temporary',
         },
         internal: { englishNameStatus: 'confirmed', imageStatus: 'temporary' },

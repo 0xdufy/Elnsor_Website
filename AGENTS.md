@@ -1,4 +1,4 @@
-# AGENTS.md — Al Nesour Feeds Website
+<!-- # AGENTS.md — Al Nesour Feeds Website
 
 ## Purpose and authority
 
@@ -178,4 +178,4 @@ Before production launch, confirm:
 4. Written business address, if it should be displayed.
 5. Production domain for canonical, hreflang, and sitemap URLs.
 6. Any client/supplier name or logo permitted for public use.
-7. Documented certifications, capacities, dates, statistics, or product specifications.
+7. Documented certifications, capacities, dates, statistics, or product specifications. -->
