@@ -137,7 +137,7 @@ try {
         productPreview: renderedProductIds.length > 0,
         onlyEnabledProducts: renderedProductIds.every((id) => enabledIds.includes(id)),
         soybeanFamily: Boolean(document.querySelector('[data-product-ids*="soybean-hulls-fine"]')),
-        processSteps: document.querySelectorAll('.home-process-list > li').length,
+        processSteps: document.querySelectorAll('.supply-process-list > li').length,
         finalCta: Boolean(document.querySelector('.home-cta a[href^="https://wa.me/201022232052"]')),
       };
     });
