@@ -1,13 +1,12 @@
 # Al Nesour Feeds Design System
 
-**Status:** Approved in TASK-001 on 2026-08-27.
-**Source proposal:** [`ST-08 Brand Direction`](tasks/TASK-001-brand-content-visual-direction/ST-08-brand-direction.md)
+**Status:** Current approved design system.
 
 ## Design intent
 
 Modern Egyptian B2B feed supply: commercial, credible, practical, product-led, and supply-chain-focused. The site should use light neutral reading surfaces with deep operational green at important moments and brass only for conversion emphasis.
 
-## Proposed tokens
+## Color tokens
 
 ```css
 :root {
@@ -25,7 +24,7 @@ Modern Egyptian B2B feed supply: commercial, credible, practical, product-led, a
 }
 ```
 
-## Proposed typography
+## Typography
 
 - Arabic: IBM Plex Sans Arabic with `Tahoma, Arial, sans-serif` fallback.
 - English: IBM Plex Sans with `Arial, sans-serif` fallback.
@@ -52,8 +51,8 @@ Modern Egyptian B2B feed supply: commercial, credible, practical, product-led, a
 
 ## Image treatment
 
-Use natural-light, documentary industrial-agriculture imagery: material handling, warehouses, factories, transport, product textures, and unbranded feed sacks. Avoid generic farm landscapes, cute livestock, synthetic CGI, glossy imagery, and branded packaging.
+Use realistic, commercially believable industrial-agriculture imagery: material handling, warehouses, factories, transport, product textures, and feed sacks. Avoid generic stock-looking farm imagery, cute livestock, synthetic CGI, and glossy treatment. Branded Al Nesour packaging is permitted when it is intentionally created for the website. Generated imagery must not be presented as photography of an actual Al Nesour facility unless that is confirmed.
 
-## Approval record
+## Maintenance
 
-The owner approved this design direction after the TASK-001 OpenDesign exploration was completed and recorded in ST-08. It is now the authoritative visual-system reference for future implementation tasks, subject to a later owner-approved brand-asset or product-information update.
+This document is the authoritative visual-system reference for the current website. Update it only alongside an owner-approved change to the brand, product information, or visual direction.
